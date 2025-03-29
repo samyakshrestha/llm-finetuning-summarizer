@@ -1,0 +1,7 @@
+# Ignore large files and temp files
+*.pdf
+*.pt
+*.bin
+*.ckpt
+.ipynb_checkpoints/
+__pycache__/
