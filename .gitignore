@@ -3,6 +3,6 @@
 *.pt
 *.bin
 *.ckpt
+*.DS_Store
 .ipynb_checkpoints/
-.DS_Store/
 __pycache__/
