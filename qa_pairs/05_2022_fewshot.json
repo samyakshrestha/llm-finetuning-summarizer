@@ -1,0 +1,46 @@
+{
+    "paper_id": "05_2022_fewshot",
+    "title": "Few-Shot Parameter-Efficient Fine-Tuning is Better and Cheaper than In-Context Learning",
+    "qa_pairs": [
+        {
+            "question": "What is the main computational drawback of few-shot in-context learning (ICL) compared to parameter-efficient fine-tuning (PEFT)?",
+            "answer": "ICL incurs high computational costs because it processes all in-context training examples during every prediction, increasing inference time and memory usage significantly, whereas PEFT fine-tunes a small number of parameters and avoids this repeated overhead."
+        },
+        {
+            "question": "What novel PEFT method is introduced in the paper and how does it work?",
+            "answer": "The paper introduces (IA), a parameter-efficient fine-tuning method that rescales intermediate activations by learned vectors, improving performance while introducing very few new parameters."
+        },
+        {
+            "question": "How does T-Few improve over both ICL and standard PEFT methods?",
+            "answer": "T-Few combines the T0 model, the (IA) method, and additional loss functions to outperform ICL and even full fine-tuning, achieving better accuracy with significantly reduced compute and memory costs."
+        },
+        {
+            "question": "What role do the unlikelihood and length normalization loss terms play in T-Few?",
+            "answer": "These loss terms help T-Few produce more accurate predictions by discouraging high-probability outputs for incorrect answers and adjusting for varying lengths of answer choices."
+        },
+        {
+            "question": "What empirical result supports T-Few\u2019s superiority in few-shot settings?",
+            "answer": "T-Few achieved super-human performance on the RAFT benchmark without any task-specific tuning, outperforming previous methods by 6% and using over 1,000\u00d7 fewer FLOPs than few-shot ICL with GPT-3."
+        },
+        {
+            "question": "Why is PEFT particularly suited for multitask learning scenarios?",
+            "answer": "Certain PEFT methods, like prompt tuning, allow for mixed-task batches by attaching different prompts to each input, enabling a single model to handle multiple tasks simultaneously without interference."
+        },
+        {
+            "question": "What are some disadvantages of ICL identified in the paper?",
+            "answer": "ICL suffers from high inference costs, unpredictable sensitivity to prompt formatting, and questionable learning behavior\u2014e.g., it may perform well even with incorrectly labeled examples."
+        },
+        {
+            "question": "What is the core idea behind few-shot learning in this paper?",
+            "answer": "Few-shot learning refers to adapting a model to perform a new task using only a small number of labeled examples, either via ICL (by providing examples as input) or PEFT (by updating a few parameters)."
+        },
+        {
+            "question": "What is the main contribution of this paper to the few-shot learning literature?",
+            "answer": "The paper introduces a PEFT-based approach, T-Few, which is computationally efficient and achieves state-of-the-art few-shot performance without task-specific modifications or large model sizes."
+        },
+        {
+            "question": "Why might someone prefer PEFT over ICL when deploying LLMs at scale?",
+            "answer": "PEFT offers better accuracy with fewer resources, lower inference cost, and improved stability compared to ICL, making it more practical and scalable for real-world applications."
+        }
+    ]
+}
