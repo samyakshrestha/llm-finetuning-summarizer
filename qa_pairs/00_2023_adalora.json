@@ -1,0 +1,34 @@
+{
+    "paper_id": "00_2023_adalora",
+    "title": "AdaLoRA: Adaptive Budget Allocation for Parameter-Efficient Fine-Tuning",
+    "qa_pairs": [
+        {
+            "question": "What problem does AdaLoRA aim to solve in the context of fine-tuning large language models?",
+            "answer": "AdaLoRA addresses the inefficiency of uniformly distributing the parameter budget across all weight matrices during fine-tuning. It proposes an adaptive allocation strategy that prioritizes important parameters, thus improving performance under constrained budgets."
+        },
+        {
+            "question": "How does AdaLoRA allocate the parameter budget among weight matrices?",
+            "answer": "AdaLoRA uses an importance scoring mechanism to assign more parameters to critical weight matrices and fewer to less important ones. This allocation is realized through a low-rank approximation using singular value decomposition (SVD)."
+        },
+        {
+            "question": "What advantage does AdaLoRA's use of singular value decomposition provide?",
+            "answer": "By representing incremental updates via SVD, AdaLoRA can prune unimportant singular values, thus reducing computational overhead and improving parameter efficiency without performing exact, expensive SVD computations."
+        },
+        {
+            "question": "Why is full fine-tuning of large pre-trained models often impractical in real-world applications involving many downstream tasks?",
+            "answer": "Full fine-tuning requires updating and storing a separate copy of the model for each downstream task, which becomes prohibitively expensive in terms of memory and computation, especially for large models like BERT, T5, or GPT-3 that have hundreds of millions to billions of parameters."
+        },
+        {
+            "question": "What are the two primary approaches to parameter-efficient fine-tuning described in the introduction?",
+            "answer": "The first approach involves adding small neural modules\u2014like adapters, prompts, or prefixes\u2014to a frozen base model and fine-tuning only those additions. The second approach models the incremental update of pre-trained weights in a parameter-efficient way without altering the model architecture, using methods like diff pruning or LoRA."
+        },
+        {
+            "question": "How does LoRA improve parameter efficiency in fine-tuning compared to full fine-tuning?",
+            "answer": "LoRA improves efficiency by representing the incremental updates as a low-rank matrix\u2014specifically, the product of two smaller matrices. This significantly reduces the number of trainable parameters while preserving or even improving performance, and it avoids the complexity of handling sparse matrices like in diff pruning."
+        },
+        {
+            "question": "What limitation of LoRA does AdaLoRA aim to overcome?",
+            "answer": "LoRA uses a fixed rank for all weight matrices during fine-tuning, which assumes all matrices are equally important. AdaLoRA addresses this by dynamically allocating different parameter budgets to different weight matrices based on their relative importance, allowing more effective use of limited resources."
+        }
+    ]
+}

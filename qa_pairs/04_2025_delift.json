@@ -1,0 +1,46 @@
+{
+    "paper_id": "04_2025_delift",
+    "title": "DELIFT: Data Efficient Language model Instruction_Fine Tuning",
+    "qa_pairs": [
+        {
+            "question": "What core limitation of existing data selection methods does DELIFT aim to overcome?",
+            "answer": "DELIFT addresses the limitations of existing data selection methods which rely either on computationally expensive gradient-based metrics or static embeddings that fail to adapt to the model\u2019s evolving state."
+        },
+        {
+            "question": "What is the key insight behind the utility metric proposed in DELIFT?",
+            "answer": "The utility metric measures the informational value of a data sample by evaluating how effectively it improves the model\u2019s prediction for other samples, inspired by in-context learning and grounded in conditional pointwise mutual information."
+        },
+        {
+            "question": "How does DELIFT ensure data efficiency across different fine-tuning stages?",
+            "answer": "DELIFT integrates its utility metric with submodular optimization to select diverse, informative subsets tailored to three fine-tuning stages: instruction tuning, task-specific adaptation, and continual fine-tuning."
+        },
+        {
+            "question": "How does DELIFT differ from traditional model-independent and model-dependent data selection methods?",
+            "answer": "DELIFT offers a unified, model-aware framework that adapts to the evolving state of the model and operates across all fine-tuning stages, unlike traditional approaches that are either static or computationally expensive and limited to specific phases."
+        },
+        {
+            "question": "What empirical benefits does DELIFT offer over baseline methods?",
+            "answer": "DELIFT reduces training data by up to 70% without sacrificing model performance and outperforms existing data selection methods by up to 26% in both effectiveness and efficiency across multiple datasets and model scales."
+        },
+        {
+            "question": "What are the primary contributions of the DELIFT framework?",
+            "answer": "The main contributions include: a unified data selection framework grounded in information theory, an efficient submodular optimization pipeline, and empirical evidence of significant data and computational savings without performance degradation."
+        },
+        {
+            "question": "What are the limitations of DELIFT noted by the authors?",
+            "answer": "The authors acknowledge DELIFT\u2019s sensitivity to the quality and diversity of the initial dataset and the risk of bias amplification in the selected data, suggesting future work should incorporate fairness constraints and data augmentation."
+        },
+        {
+            "question": "What problem does DELIFT solve in the context of fine-tuning large language models?",
+            "answer": "DELIFT solves the problem of inefficient and resource-heavy fine-tuning by intelligently selecting the most informative data samples, thereby reducing redundancy and computational cost while maintaining or improving performance."
+        },
+        {
+            "question": "Why is data selection important for instruction fine-tuning?",
+            "answer": "Data selection is crucial for instruction fine-tuning because the process is resource-intensive, and removing redundant or low-value samples can significantly reduce training cost and time without degrading model quality."
+        },
+        {
+            "question": "Can DELIFT be applied to all stages of LLM fine-tuning?",
+            "answer": "Yes, DELIFT is explicitly designed to adapt to all stages of fine-tuning\u2014including instruction tuning, task-specific adaptation, and continual fine-tuning\u2014making it a comprehensive data selection solution."
+        }
+    ]
+}

@@ -1,0 +1,46 @@
+{
+    "paper_id": "03_2024_curlora",
+    "title": "CURLoRA: Stable LLM Continual Fine-Tuning and Catastrophic_Forgetting Mitigation",
+    "qa_pairs": [
+        {
+            "question": "What core problem does CURLoRA seek to address in the context of large language model fine-tuning?",
+            "answer": "CURLoRA addresses two main challenges: mitigating catastrophic forgetting during continual fine-tuning and reducing the number of trainable parameters required for adaptation."
+        },
+        {
+            "question": "How does CURLoRA differ from standard LoRA in its matrix decomposition strategy?",
+            "answer": "CURLoRA replaces the traditional random initialization in LoRA with CUR matrix decomposition, using inverted probabilities for selecting columns and rows and initializing the U matrix as zeros\u2014this serves as a form of implicit regularization."
+        },
+        {
+            "question": "What is the purpose of initializing the U matrix as a zero matrix in CURLoRA?",
+            "answer": "Initializing U as a zero matrix ensures that only U is fine-tuned during training, which minimizes deviations from the pretrained model and reduces the risk of catastrophic forgetting."
+        },
+        {
+            "question": "Why is catastrophic forgetting a problem in LoRA-based fine-tuning?",
+            "answer": "In LoRA, the adapted weight output can deviate significantly from the original weight matrix due to low-rank updates, which may overwrite previously learned knowledge and result in forgetting prior tasks."
+        },
+        {
+            "question": "What is the role of inverted probability sampling in CURLoRA\u2019s CUR decomposition?",
+            "answer": "Inverted probability sampling prioritizes less dominant features (columns/rows with lower activation) during CUR decomposition, leading to better coverage of information and more stable learning dynamics."
+        },
+        {
+            "question": "How does CURLoRA improve computational efficiency compared to traditional fine-tuning methods?",
+            "answer": "CURLoRA reduces the number of trainable parameters by fine-tuning only the U matrix derived from CUR decomposition, requiring fewer resources while maintaining model performance."
+        },
+        {
+            "question": "In what types of scenarios does CURLoRA particularly excel, according to the authors?",
+            "answer": "CURLoRA is especially effective in resource-constrained settings and when fine-tuning on limited datasets, where it maintains performance without overwriting prior knowledge."
+        },
+        {
+            "question": "What empirical evidence supports the claims made about CURLoRA?",
+            "answer": "Experiments across multiple datasets show that CURLoRA outperforms standard LoRA in mitigating catastrophic forgetting, maintaining model stability, and preserving base model perplexity across continual tasks."
+        },
+        {
+            "question": "Summarize the CURLoRA paper in simple terms for a non-expert audience.",
+            "answer": "CURLoRA is a new way to fine-tune large language models that helps them remember what they\u2019ve already learned while adapting to new tasks. It uses a mathematical trick called CUR decomposition to update only a small part of the model, making it both efficient and stable."
+        },
+        {
+            "question": "What are the practical implications of CURLoRA for continual learning in NLP?",
+            "answer": "CURLoRA offers a pathway to fine-tune models incrementally without sacrificing previous knowledge, making it ideal for applications that require models to stay updated over time without retraining from scratch."
+        }
+    ]
+}

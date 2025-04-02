@@ -1,0 +1,46 @@
+{
+    "paper_id": "02_2024_balancing_pretrain_finetune",
+    "title": "Balancing Continuous Pre-Training and Instruction Fine-Tuning: Optimizing Instruction-Following in LLMs",
+    "qa_pairs": [
+        {
+            "question": "What are the two primary phases in training large language models (LLMs), and why is instruction fine-tuning necessary?",
+            "answer": "The two primary phases are large-scale pretraining on diverse unlabeled data, followed by task-specific instruction fine-tuning. While pretraining equips models with general linguistic capabilities, instruction fine-tuning aligns the model\u2019s behavior with human intent, enhancing its ability to follow explicit instructions."
+        },
+        {
+            "question": "Why is continuous pre-training essential for LLMs, and what problem does it pose for instruction-tuned models?",
+            "answer": "Continuous pre-training ensures LLMs stay updated with new knowledge. However, when applied to instruction-tuned models, it causes catastrophic forgetting, diminishing their instruction-following capabilities."
+        },
+        {
+            "question": "What empirical strategy do the authors propose to preserve both updated knowledge and instruction-following ability?",
+            "answer": "The authors propose continuously pre-training the base model, then performing instruction fine-tuning afterward. This sequence maintains both domain knowledge and the capacity to follow instructions, avoiding the drawbacks of directly pretraining the instruction-tuned model."
+        },
+        {
+            "question": "What is the \u201cinstruction residual\u201d method, and how does it work?",
+            "answer": "The instruction residual method extracts the difference in weights between a base model and its instruction-tuned counterpart and applies that delta to a newly updated base model, transferring instruction-following capabilities without redoing instruction fine-tuning."
+        },
+        {
+            "question": "Under what conditions can the instruction residual method be applied effectively?",
+            "answer": "The instruction residual method extracts the difference in weights between a base model and its instruction-tuned counterpart and applies that delta to a newly updated base model, transferring instruction-following capabilities without redoing instruction fine-tuning."
+        },
+        {
+            "question": "What key experimental insight did the authors discover about model size and the efficacy of their approach?",
+            "answer": "The strategy works well for 8B parameter models but shows variation in effectiveness for smaller models, especially those around 1.5B parameters. The scalability of the approach to such models remains an open research question."
+        },
+        {
+            "question": "What limitations do the authors acknowledge regarding their methodology?",
+            "answer": "Two main limitations are identified: (1) its uncertain scalability to smaller models, and (2) dependency on having both base and instruction-tuned versions, which may not always be feasible due to computational or resource constraints."
+        },
+        {
+            "question": "What problem does this paper aim to solve in the context of instruction tuning for LLMs?",
+            "answer": "It addresses how to maintain both updated knowledge and instruction-following ability in LLMs without repeatedly performing costly instruction fine-tuning."
+        },
+        {
+            "question": "How does this paper differ from previous work on continual pre-training or catastrophic forgetting?",
+            "answer": "Unlike prior work focused mainly on base models, this paper examines the unique effects of continual pretraining on instruction-tuned models and proposes a novel weight residual transfer strategy for preserving instruction-following ability."
+        },
+        {
+            "question": "What practical takeaway does the paper offer for training up-to-date instruction-following LLMs?",
+            "answer": "Instead of repeatedly fine-tuning updated instruction models, practitioners can simply reuse instruction residuals from earlier models and apply them to newer base models\u2014saving both time and compute."
+        }
+    ]
+}
