@@ -1,0 +1,46 @@
+{
+    "paper_id": "15_2021_PETL_with_DP",
+    "title": "Parameter-Efficient Transfer Learning with Diff Pruning",
+    "qa_pairs": [
+        {
+            "question": "What is the central innovation of diff pruning for parameter-efficient transfer learning?",
+            "answer": "Diff pruning introduces a task-specific 'diff' vector that extends pretrained model parameters without modifying the base weights. This vector is adaptively pruned during training using a differentiable L0-norm approximation to promote sparsity, allowing highly efficient adaptation with minimal parameter overhead."
+        },
+        {
+            "question": "How does diff pruning reparameterize model weights during fine-tuning?",
+            "answer": "Diff pruning reparameterizes task-specific model weights as \u03b8_task = \u03b8_pretrained + \u03b4_task, where \u03b8_pretrained remains fixed and only the difference vector \u03b4_task is optimized, allowing for sparse and efficient adaptation."
+        },
+        {
+            "question": "Why is diff pruning well-suited for on-device or multi-task deployment scenarios?",
+            "answer": "Diff pruning is ideal for on-device and multi-task settings because it requires storing only a sparse task-specific diff vector, while the shared pretrained model remains constant across tasks. This enables efficient task switching without catastrophic forgetting and with minimal storage costs."
+        },
+        {
+            "question": "What role does the differentiable approximation to the L0-norm play in diff pruning?",
+            "answer": "The differentiable L0-norm encourages sparsity in the diff vector by acting as a regularizer during training, allowing the model to learn compact task-specific updates while preserving performance."
+        },
+        {
+            "question": "How does diff pruning compare to adapter-based methods in terms of parameter efficiency?",
+            "answer": "While adapter-based methods like Houlsby adapters typically require around 3.6% additional parameters per task, diff pruning achieves similar or better performance with as little as 0.5% added parameters per task, making it significantly more efficient."
+        },
+        {
+            "question": "What are the empirical results of diff pruning on the GLUE benchmark?",
+            "answer": "On the GLUE benchmark, structured diff pruning matches the performance of fully fine-tuned BERT models while only modifying 0.5% of parameters per task. The structured variant performs better than unstructured or non-adaptive variants."
+        },
+        {
+            "question": "How did diff pruning perform on the SQuAD v1.1 dataset compared to full fine-tuning?",
+            "answer": "On SQuAD v1.1, diff pruning achieved comparable or superior performance to full fine-tuning while modifying only 1% of the parameters, suggesting both efficiency and potential regularization benefits."
+        },
+        {
+            "question": "What are intruder dimensions, and are they relevant in the context of diff pruning?",
+            "answer": "While this paper does not explicitly mention intruder dimensions, diff pruning avoids such artifacts by sparsely updating only a minimal difference vector, unlike LoRA which may introduce orthogonal components into the model's spectral space."
+        },
+        {
+            "question": "What future directions for research does the paper propose regarding diff pruning?",
+            "answer": "The paper suggests two directions: (i) incorporating parameter-efficiency objectives into the pretraining stage to better support sparse adaptation, and (ii) combining diff pruning with other techniques like adapters or model compression for enhanced efficiency."
+        },
+        {
+            "question": "Why is diff pruning considered a 'middle ground' between full fine-tuning and feature-based transfer learning?",
+            "answer": "Diff pruning captures the performance benefits of fine-tuning while maintaining the modularity and storage efficiency of feature-based approaches. It avoids the rigidity of fixed features and the redundancy of duplicating entire model weights for each task."
+        }
+    ]
+}

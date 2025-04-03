@@ -1,0 +1,62 @@
+{
+    "paper_id": "20_2024_scale_down_to_scale_up",
+    "title": "Scaling Down to Scale Up: A Guide to Parameter-Efficient Fine-Tuning",
+    "qa_pairs": [
+        {
+            "question": "What fundamental problem does parameter-efficient fine-tuning (PEFT) seek to address in large language models?",
+            "answer": "PEFT addresses the prohibitive memory and computational costs of full fine-tuning by training only a small subset of parameters, enabling fine-tuning of large language models on resource-constrained hardware without significant loss in performance."
+        },
+        {
+            "question": "What are the five key dimensions used in this paper to benchmark PEFT methods?",
+            "answer": "The five dimensions are: storage efficiency, memory efficiency, computational efficiency, inference overhead, and downstream performance metrics such as accuracy or ROUGE-L."
+        },
+        {
+            "question": "How does the paper categorize PEFT methods and what is the rationale behind excluding some from the comparison?",
+            "answer": "The paper categorizes PEFT methods into Additive, Selective, Reparametrization-based, and Hybrid. Sparse-selective methods are excluded from the experiments due to their limited practicality on modern hardware and their narrow focus on storage efficiency."
+        },
+        {
+            "question": "What were the key experimental findings regarding the performance of Houlsby Adapters and LoRA?",
+            "answer": "Houlsby Adapters and LoRA consistently matched or exceeded full fine-tuning performance across model scales and datasets, requiring minimal hyperparameter tuning and demonstrating high reliability in both efficiency and downstream metrics."
+        },
+        {
+            "question": "Why is Layer Norm tuning considered a surprising baseline, and how did it perform?",
+            "answer": "Layer Norm tuning is rarely studied in PEFT literature, yet in this study it performed competitively with full fine-tuning for T5-Large and T5-11B models, making it a simple, efficient, and effective baseline."
+        },
+        {
+            "question": "What trade-off was observed between training speed and model size for PEFT methods?",
+            "answer": "While PEFT methods reduce memory usage, they can slow down training for smaller models like T5-Large due to the overhead of added parameters. However, for larger models, this overhead becomes negligible, making PEFT more advantageous at scale."
+        },
+        {
+            "question": "How do reparametrization-based methods like KronA and Compacter affect training and inference?",
+            "answer": "Though KronA and Compacter significantly reduce the number of trainable parameters, they do not substantially improve memory efficiency. However, due to their efficient Kronecker-vector product operations, they show faster training and inference speeds compared to LoRA."
+        },
+        {
+            "question": "What challenges are associated with comparing PEFT methods across papers?",
+            "answer": "Challenges include inconsistent reporting of parameter counts, differing evaluation setups, lack of standardized benchmarks, and absence of unified metrics, which make it difficult to draw fair comparisons between methods."
+        },
+        {
+            "question": "What causes hybrid PEFT methods like UniPELT and MAM to perform poorly in this study?",
+            "answer": "Hybrid methods exhibited high sensitivity to hyperparameters and were hard to optimize in compute-limited scenarios. Prompt Tuning, a component of both, showed slow convergence and high variance, contributing to the poor performance of the overall method."
+        },
+        {
+            "question": "How does the performance of Prompt Tuning compare to Prefix Tuning, and what might explain the difference?",
+            "answer": "Prompt Tuning underperforms Prefix Tuning, never outperforming a constant prediction baseline. The difference lies in Prefix Tuning's reparametrization of prefixes via a fully connected network, whereas Prompt Tuning directly optimizes longer prefixes, resulting in slower convergence and higher sensitivity to initialization."
+        },
+        {
+            "question": "Why is fine-tuning still considered more practical than in-context learning (ICL) despite the latter\u2019s popularity?",
+            "answer": "Fine-tuning, once completed, offers significantly lower inference costs and greater reliability compared to ICL, which suffers from limited context length, quadratic compute scaling, and sensitivity to prompt formatting."
+        },
+        {
+            "question": "What insights does this paper offer for future PEFT method development?",
+            "answer": "The paper suggests exploring new reparametrization techniques, leveraging insights into how Transformers process text across layers, and creating adaptive PEFT methods that vary parameter allocation per layer, aiming to improve both efficiency and accuracy."
+        },
+        {
+            "question": "How might PEFT methods intersect with ideas from edge machine learning?",
+            "answer": "Both domains share constraints on memory, compute, and energy, making techniques like quantization and pruning highly transferable. Cross-disciplinary collaboration could yield innovations benefiting both edge devices and large-scale model fine-tuning."
+        },
+        {
+            "question": "What broader impact does parameter-efficient fine-tuning have on the accessibility of LLM research and deployment?",
+            "answer": "PEFT democratizes the ability to adapt large models by lowering hardware requirements, enabling smaller teams and independent researchers to fine-tune billion-scale LLMs efficiently, thus broadening participation in state-of-the-art NLP development."
+        }
+    ]
+}

@@ -1,0 +1,46 @@
+{
+    "paper_id": "13_2024_PEFT_for_LM",
+    "title": "Parameter-Efficient Fine-Tuning for Large Models:A Comprehensive Survey",
+    "qa_pairs": [
+        {
+            "question": "What is Parameter-Efficient Fine-Tuning (PEFT) and why is it important for large models?",
+            "answer": "PEFT refers to fine-tuning a pre-trained large model by adjusting only a small subset of its parameters, thereby reducing computational and memory costs. It is especially important for large models with billions of parameters, where full fine-tuning becomes prohibitively expensive in terms of system resources and deployment feasibility."
+        },
+        {
+            "question": "What are the four main categories of PEFT algorithms surveyed in this paper?",
+            "answer": "The survey categorizes PEFT algorithms into four groups: (1) Additive approaches, which introduce new parameters or modify activations; (2) Selective approaches, which fine-tune only a subset of existing parameters; (3) Reparameterized methods, which learn a low-dimensional representation of the parameter changes; and (4) Hybrid approaches, which combine elements of the above strategies."
+        },
+        {
+            "question": "How do additive PEFT methods differ from selective methods?",
+            "answer": "Additive methods inject new trainable components, such as adapters or side networks, into the model architecture, while selective methods only fine-tune a small fraction of the existing parameters, such as biases or attention layers, without modifying the architecture."
+        },
+        {
+            "question": "What are some techniques discussed in the survey for reducing PEFT\u2019s computational complexity?",
+            "answer": "The survey discusses strategies such as key-value cache management, pruning, quantization, and memory optimization to reduce the computational burden and memory requirements during PEFT training and inference."
+        },
+        {
+            "question": "Which model types beyond NLP are being targeted by recent PEFT research, according to the paper?",
+            "answer": "Recent PEFT research extends beyond NLP to include Vision Transformers (ViT), vision-language alignment models, and diffusion models, indicating the broad applicability of PEFT across diverse deep learning domains."
+        },
+        {
+            "question": "What are the three system-level challenges for practical PEFT deployment discussed in the paper?",
+            "answer": "The paper identifies three key system-level challenges: (1) PEFT query serving, which deals with deploying multiple fine-tuned modules efficiently; (2) distributed tuning, which addresses large-scale PEFT across nodes; and (3) concurrent tuning, which involves optimizing multiple fine-tuning jobs simultaneously."
+        },
+        {
+            "question": "Why is the absence of a unified benchmark a problem for PEFT research?",
+            "answer": "Without a standardized benchmark, it is difficult to compare the performance and efficiency of different PEFT methods fairly. This lack of consistency inhibits collaborative progress, reproducibility, and meaningful evaluation across studies."
+        },
+        {
+            "question": "How does the paper suggest improving PEFT\u2019s training efficiency despite its parameter-efficient design?",
+            "answer": "The paper notes that although PEFT reduces the number of trainable parameters, it still often requires full model activations and gradients, which are computationally expensive. To improve efficiency, it recommends integrating model compression techniques like pruning and quantization, and designing memory-optimized training schemes."
+        },
+        {
+            "question": "What future direction is proposed to address hyperparameter tuning challenges in PEFT?",
+            "answer": "The paper advocates for research into automatic or simplified hyperparameter tuning strategies, particularly for sensitive parameters such as LoRA rank or adapter bottleneck dimensions, to reduce manual labor and improve accessibility."
+        },
+        {
+            "question": "What systemic challenge does the paper highlight in relation to data privacy and PEFT?",
+            "answer": "The paper warns that centralized PEFT systems may be vulnerable to inversion attacks capable of reconstructing user data. It suggests the development of encryption protocols to protect both personal data and intermediate training/inference results as a key area for future trustworthy system design."
+        }
+    ]
+}

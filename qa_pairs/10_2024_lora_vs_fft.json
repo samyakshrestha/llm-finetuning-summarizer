@@ -1,0 +1,46 @@
+{
+    "paper_id": "10_2024_lora_vs_fft",
+    "title": "LoRA VS Full Fine-Tuning: An Illusion of Equivalence",
+    "qa_pairs": [
+        {
+            "question": "What key question does this paper investigate regarding LoRA and full fine-tuning?",
+            "answer": "The paper investigates whether LoRA and full fine-tuning, despite achieving similar accuracy on downstream tasks, actually learn equivalent solutions, particularly in terms of their internal parameter structure and generalization behavior."
+        },
+        {
+            "question": "What are intruder dimensions in the context of LoRA, and how do they differ from full fine-tuning?",
+            "answer": "Intruder dimensions are high-ranking singular vectors introduced by LoRA that are approximately orthogonal to the pre-trained weight matrix's singular vectors. These dimensions do not appear in fully fine-tuned models, which tend to preserve the spectral structure of the original model."
+        },
+        {
+            "question": "How do LoRA fine-tuned models perform outside the adaptation task distribution compared to full fine-tuned models?",
+            "answer": "LoRA fine-tuned models, particularly those with intruder dimensions, perform worse than full fine-tuned models outside the adaptation task distribution. They exhibit more forgetting of the pre-training distribution and are less robust in continual learning scenarios."
+        },
+        {
+            "question": "What does the paper conclude about LoRA's ability to generalize compared to full fine-tuning?",
+            "answer": "The paper concludes that even when LoRA matches full fine-tuning on in-distribution performance, it generalizes less effectively. LoRA models often fail to retain pretraining knowledge and struggle with robust adaptation unless configured with sufficiently high and stabilized ranks."
+        },
+        {
+            "question": "What is rank stabilization in LoRA, and why is it necessary?",
+            "answer": "Rank stabilization involves ensuring that the low-rank decomposition used in LoRA maintains a stable and meaningful spectral structure. Without it, increasing the rank may not improve generalization and may exacerbate forgetting of pretraining knowledge."
+        },
+        {
+            "question": "How does increasing the LoRA rank affect the model's performance and generalization?",
+            "answer": "Higher LoRA ranks (e.g., r = 64) tend to produce models with better generalization and robustness, more closely resembling full fine-tuned models. However, excessive rank without stabilization can lead to loss of pre-training information, mirroring the tradeoffs seen in full fine-tuning."
+        },
+        {
+            "question": "Why is the intrinsic dimension hypothesis relevant to understanding LoRA's performance?",
+            "answer": "The intrinsic dimension hypothesis suggests that task-specific updates may lie in a low-rank subspace, providing a theoretical rationale for LoRA\u2019s success. However, this paper shows that despite this, LoRA and full fine-tuning differ meaningfully in their parameter updates and generalization behavior."
+        },
+        {
+            "question": "What trade-off does LoRA face when increasing its expressive power through higher ranks?",
+            "answer": "While increasing LoRA rank improves generalization, it also leads to a higher risk of forgetting pre-trained knowledge\u2014highlighting the classic trade-off between task-specific expressivity and broad generalization."
+        },
+        {
+            "question": "What makes LoRA a popular alternative to full fine-tuning?",
+            "answer": "LoRA is popular because it enables fine-tuning of large language models with significantly fewer trainable parameters, reducing computational cost while still achieving strong task-specific performance."
+        },
+        {
+            "question": "What is the paper's overall conclusion about the equivalence between LoRA and full fine-tuning?",
+            "answer": "The paper concludes that LoRA and full fine-tuning are not equivalent despite similar in-distribution performance. They explore different regions of parameter space, exhibit distinct spectral properties, and differ in their ability to generalize and retain pre-trained knowledge."
+        }
+    ]
+}

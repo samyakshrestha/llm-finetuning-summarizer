@@ -1,0 +1,46 @@
+{
+    "paper_id": "19_2024_zeroth_order_optimization",
+    "title": "Revisiting Zeroth-Order Optimization for Memory-Efficient LLM Fine-Tuning: A Benchmark",
+    "qa_pairs": [
+        {
+            "question": "What fundamental challenge does zeroth-order (ZO) optimization aim to solve in the context of LLM fine-tuning?",
+            "answer": "ZO optimization addresses the significant memory overhead caused by back-propagation during first-order optimization, offering a BP-free alternative that approximates gradients using function value differences, thus enabling more memory-efficient fine-tuning of large language models."
+        },
+        {
+            "question": "How does ZO optimization compute gradients without back-propagation?",
+            "answer": "ZO optimization estimates gradients by evaluating the change in loss values resulting from small perturbations to the model parameters, rather than computing gradients via back-propagation through the model\u2019s layers."
+        },
+        {
+            "question": "What is the significance of the forward gradient method highlighted in this paper?",
+            "answer": "The forward gradient method serves as a baseline in ZO optimization for LLM fine-tuning, offering a simple yet effective way to estimate gradients without back-propagation, and its role had been previously underappreciated in the context of LLMs."
+        },
+        {
+            "question": "What novel enhancements to ZO optimization are proposed in this work?",
+            "answer": "The paper introduces block-wise descent, which divides parameters into groups for localized updates; hybrid ZO and FO training, which combines ZO efficiency with FO accuracy; and sparsity-induced ZO optimization, which leverages sparse updates to further reduce memory consumption."
+        },
+        {
+            "question": "How does block-wise ZO optimization improve the fine-tuning process?",
+            "answer": "Block-wise ZO optimization improves performance by breaking the parameter space into manageable segments, allowing for more efficient and scalable gradient estimation, which reduces computational complexity and enhances accuracy."
+        },
+        {
+            "question": "In what ways does task alignment influence the effectiveness of ZO optimization?",
+            "answer": "Task alignment significantly impacts the performance of ZO optimization; aligning the optimization procedure with the nature and complexity of the task helps mitigate the noise in gradient estimation, leading to better fine-tuning outcomes."
+        },
+        {
+            "question": "What trade-offs are observed between algorithmic complexity and fine-tuning accuracy in ZO methods?",
+            "answer": "The study reveals that more complex ZO algorithms can yield higher accuracy but often at the cost of increased query count and computation time. Simpler methods like MeZO are more efficient but less accurate, highlighting a key trade-off between complexity and performance."
+        },
+        {
+            "question": "Why is the exploration of ZO optimization particularly relevant for on-device LLM fine-tuning?",
+            "answer": "On-device training typically operates under severe memory constraints, making BP-free methods like ZO optimization attractive because they eliminate the need for storing activations and gradients, enabling feasible fine-tuning of LLMs on edge hardware."
+        },
+        {
+            "question": "How does this work advance the field beyond Malladi et al. (2023)?",
+            "answer": "While Malladi et al. introduced MeZO using ZO-SGD, this work expands the scope by benchmarking six different ZO optimization methods across five LLM families, introduces new techniques to improve accuracy and memory efficiency, and systematically analyzes optimization principles."
+        },
+        {
+            "question": "What broader implications does this study suggest for the future of LLM optimization?",
+            "answer": "The study suggests that ZO optimization could redefine the paradigm of LLM fine-tuning by enabling high-performance, low-memory training regimes, thus democratizing access to LLM customization and enabling novel applications in low-resource settings."
+        }
+    ]
+}

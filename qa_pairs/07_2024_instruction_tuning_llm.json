@@ -1,0 +1,50 @@
+{
+    "paper_id": "07_2024_instruction_tuning_llm",
+    "title": "Instruction Tuning for Large Language Models: A Survey",
+    "qa_pairs": [
+        {
+            "question": "What is instruction tuning (IT), and why is it also referred to as supervised fine-tuning (SFT)?",
+            "answer": "Instruction tuning (IT), also called supervised fine-tuning (SFT), refers to the process of further training a large language model using supervised datasets composed of (INSTRUCTION, OUTPUT) pairs. This process adapts the model from its original objective of next-token prediction to a behavior more aligned with following human instructions."
+        },
+        {
+            "question": "What are the three main benefits of instruction tuning as described in the survey?",
+            "answer": "The three main benefits of instruction tuning are: (1) bridging the gap between next-word prediction and instruction-following objectives, (2) enabling more controllable and predictable model behavior through human-aligned constraints, and (3) allowing efficient adaptation to specific domains without requiring extensive retraining or architectural changes."
+        },
+        {
+            "question": "According to the survey, what are the key challenges faced in instruction tuning?",
+            "answer": "Key challenges include crafting high-quality and diverse instruction datasets, the limited generalization of models to tasks not present in the training data, and concerns that SFT may teach surface-level formatting patterns rather than genuine task understanding."
+        },
+        {
+            "question": "How does instruction tuning help align LLM behavior with user expectations?",
+            "answer": "Instruction tuning helps align LLM behavior with user expectations by training the model to produce outputs that adhere to specific instructions, thereby enabling more interpretable, goal-directed, and human-centered responses."
+        },
+        {
+            "question": "What criticism is leveled against current SFT models according to the authors?",
+            "answer": "Criticisms include the claim that SFT models primarily learn output formatting or stylistic patterns instead of genuinely understanding the task, as well as their tendency to perform well only on tasks heavily represented in the training data."
+        },
+        {
+            "question": "Why is this paper significant within the landscape of LLM research?",
+            "answer": "The paper fills a notable gap by offering a comprehensive and structured review of instruction tuning techniques, datasets, methodologies, and evaluations\u2014a topic underexplored in contrast to pretraining and downstream application studies."
+        },
+        {
+            "question": "What future directions do the authors recommend for improving SFT techniques?",
+            "answer": "The authors recommend improving instruction dataset quality and diversity, developing more robust evaluation metrics, investigating multi-modal SFT techniques, and enhancing generalization across unseen tasks and domains."
+        },
+        {
+            "question": "How does instruction tuning differ from the original pretraining objective of LLMs?",
+            "answer": "While pretraining optimizes for contextual word prediction on large corpora, instruction tuning trains models to follow specific human-given tasks, thus aligning model behavior with explicit, user-oriented goals."
+        },
+        {
+            "question": "What is the role of instruction datasets in supervised fine-tuning?",
+            "answer": "Instruction datasets provide supervised examples of tasks formatted as (INSTRUCTION, OUTPUT) pairs. Their quality, diversity, and coverage significantly affect the generalization ability and instruction-following precision of the fine-tuned model."
+        },
+        {
+            "question": "How can instruction tuning impact real-world applications of LLMs?",
+            "answer": "Instruction tuning enhances the ability of LLMs to perform complex tasks in domains such as healthcare, education, and legal reasoning by tailoring model outputs to human-specified formats and expectations, thereby improving trust, usability, and safety."
+        },
+        {
+            "question": "Why might a practitioner choose SFT over other fine-tuning strategies?",
+            "answer": "Practitioners might choose SFT because it is more computationally efficient, supports domain-specific adaptation without modifying the base architecture, and produces more predictable, instruction-aligned behavior than traditional next-token finetuning."
+        }
+    ]
+}

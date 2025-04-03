@@ -1,0 +1,46 @@
+{
+    "paper_id": "16_2024_POSFT",
+    "title": "Preference-Oriented Supervised Fine-Tuning: Favoring Target Model Over Aligned Large Language Models",
+    "qa_pairs": [
+        {
+            "question": "What is the core motivation behind the development of Preference-Oriented Supervised Fine-Tuning (PoFT)?",
+            "answer": "PoFT was developed to address the limitations of conventional supervised fine-tuning, particularly its sensitivity to low-quality instruction-response pairs. By incorporating preference modeling that favors the target model over aligned LLMs, PoFT introduces a robustness mechanism that implicitly evaluates data quality during training."
+        },
+        {
+            "question": "How does PoFT differ fundamentally from traditional preference alignment methods like DPO?",
+            "answer": "While traditional preference alignment methods like DPO require \u27e8x, y+, y\u2212\u27e9 tuples to compare responses, PoFT operates within the supervised fine-tuning paradigm, using only \u27e8x, y\u27e9 pairs. It defines preferences not between responses but between models, aiming to make the target model outperform aligned LLMs on the same data."
+        },
+        {
+            "question": "How does the Bradley-Terry (BT) objective function operate within PoFT?",
+            "answer": "In PoFT, the BT objective is used to model a preference between the target model and an aligned LLM on the same \u27e8x, y\u27e9 pair. The loss encourages the target model to assign a higher log-likelihood to the correct response than the aligned model, effectively integrating quality-aware preference signals into the optimization process."
+        },
+        {
+            "question": "Why is PoFT considered more robust than conventional SFT with cross-entropy (CE) loss in the presence of low-quality data?",
+            "answer": "PoFT dynamically assigns importance weights to training samples based on the log-likelihood assigned by the aligned LLM. This means that examples with lower quality, as assessed by the aligned model, have less influence on training. In contrast, CE treats all samples equally, making it vulnerable to noise and poor-quality data."
+        },
+        {
+            "question": "Can PoFT be integrated with other methods, and if so, how does it perform in combination with DPO?",
+            "answer": "Yes, PoFT is orthogonal to preference alignment methods and can be combined with DPO in a two-stage training process. Experimental results demonstrate that PoFT followed by DPO leads to further alignment improvements compared to using either method alone."
+        },
+        {
+            "question": "How do aligned LLMs function in the PoFT training pipeline?",
+            "answer": "Aligned LLMs serve as comparative baselines that implicitly assess the quality of the instruction-response pair. Their predicted likelihoods are used to guide the preference modeling, encouraging the target model to surpass their confidence on each training example."
+        },
+        {
+            "question": "What empirical results support the effectiveness of PoFT across different base models and datasets?",
+            "answer": "PoFT consistently outperforms CE-based SFT across various training datasets and LLM backbones. It demonstrates better alignment performance, increased robustness to noise, and stability across training epochs, as shown through ablation studies and benchmark evaluations."
+        },
+        {
+            "question": "What theoretical justification does the paper provide for PoFT\u2019s stability during training?",
+            "answer": "The paper provides a gradient-based analysis demonstrating that PoFT\u2019s use of preference-based weighting leads to smoother gradient updates, reducing variance caused by low-quality samples and contributing to more stable and resilient model optimization."
+        },
+        {
+            "question": "Why might PoFT be particularly advantageous when training on instruction data generated through AI distillation (e.g., Alpaca, ShareGPT)?",
+            "answer": "Because AI-distilled instruction data often varies in quality, PoFT\u2019s reliance on aligned LLMs to assign implicit quality scores helps mitigate the risk of overfitting to suboptimal examples, making it a natural fit for such semi-automatically curated datasets."
+        },
+        {
+            "question": "What broader insight does PoFT offer for the future of instruction tuning in large language models?",
+            "answer": "PoFT suggests that instruction tuning can benefit significantly from model-level preference comparisons rather than solely relying on explicit labels or human preferences. This opens up a new paradigm where even noisy or imperfect data can be used effectively when coupled with reliable model baselines for implicit supervision."
+        }
+    ]
+}

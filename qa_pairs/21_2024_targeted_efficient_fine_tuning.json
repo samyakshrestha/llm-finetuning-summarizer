@@ -1,0 +1,50 @@
+{
+    "paper_id": "21_2024_targeted_efficient_fine_tuning",
+    "title": "Targeted Efficient Fine-tuning: Optimizing Parameter Updates with Data-Driven Sample Selection",
+    "qa_pairs": [
+        {
+            "question": "What limitation of the FISH Mask method does the IRD algorithm aim to address in the context of PEFT?",
+            "answer": "The IRD algorithm addresses the limitation of random sample selection in FISH Mask, which fails to account for complex, non-uniform data distributions. IRD refines sample and parameter selection by iteratively identifying subsets with higher Fisher information, leading to more effective fine-tuning."
+        },
+        {
+            "question": "How does the Iterative Range Decreasing (IRD) algorithm work to optimize sample-parameter pair selection?",
+            "answer": "IRD starts with the full sample-parameter space and iteratively reduces the range by focusing on subsets with high Fisher information, effectively ascending from the lower-right to the upper-left of a matrix that maps sample and parameter sparsity to performance. This strategy improves parameter selection before training."
+        },
+        {
+            "question": "How does IRD perform relative to LoRA when the fine-tuned parameter scale is small?",
+            "answer": "IRD outperforms LoRA at smaller parameter scales. For instance, at 0.02% parameter tuning, IRD achieves comparable or better results than LoRA, which requires at least 0.04% to match its performance. Moreover, IRD allows finer control over parameter scale than LoRA, which is constrained by rank-based configurations."
+        },
+        {
+            "question": "What role does the Fisher Information Matrix (FIM) play in IRD and FISH Mask methods?",
+            "answer": "Both methods use the FIM to estimate parameter importance based on training data. While FISH Mask calculates FIM using randomly selected samples, IRD improves this by iteratively selecting sample sets with higher Fisher information to guide more optimal parameter selection for fine-tuning."
+        },
+        {
+            "question": "What experimental evidence supports IRD's generalizability across foundation model architectures?",
+            "answer": "Experiments on BERT, GPT-2, and LLaMA demonstrate that IRD outperforms or matches FISH Mask across multiple GLUE tasks, highlighting its effectiveness across both encoder-only and decoder-only transformer models, and across a range of parameter scales."
+        },
+        {
+            "question": "How does IRD perform in GLUE benchmark tasks compared to FISH Mask under the BERT-base model?",
+            "answer": "IRD achieves better performance than FISH Mask in tasks such as CoLA, RTE, STS-B, and MRPC, draws in QQP, QNLI, MNLI-m, and MNLI-mm, and only underperforms in WNLI. Overall, IRD achieves more improvements (30 upward arrows) than regressions (22 downward arrows), validating its superiority."
+        },
+        {
+            "question": "In what experimental scenario do FISH Mask and IRD produce similar results, and why?",
+            "answer": "FISH Mask and IRD perform similarly when the optimal sample-parameter pair lies at the initial selection range (i.e., the lower-right corner of the sample-parameter matrix). In such cases, IRD\u2019s iterative reduction does not yield further gains, resulting in a draw between the methods."
+        },
+        {
+            "question": "Why is LoRA less flexible than IRD in adjusting parameter scale for fine-tuning?",
+            "answer": "LoRA\u2019s parameter scale is tied to the rank of its additive matrix, which limits granularity in scaling. In contrast, IRD can precisely adjust the percentage of fine-tuned parameters, enabling superior control in resource-constrained settings."
+        },
+        {
+            "question": "What are the primary advantages of IRD over existing PEFT methods like LoRA and FISH Mask?",
+            "answer": "IRD provides better fine-tuning performance at smaller parameter scales, greater flexibility in parameter scaling, and improved sample selection through data-centric optimization. These qualities make it particularly suitable for scenarios with limited computational resources."
+        },
+        {
+            "question": "Why is data selection an important but often overlooked component in parameter-efficient fine-tuning?",
+            "answer": "Most PEFT methods focus on architectural or parameter selection without explicitly considering how data quality or distribution affects parameter importance. Data selection is crucial because the informativeness of training samples can significantly influence which parameters should be fine-tuned."
+        },
+        {
+            "question": "What broader impact could data-driven PEFT methods like IRD have on the field of efficient LLM training?",
+            "answer": "Data-driven PEFT methods could shift the paradigm from architecture-centric to data-centric optimization, enabling more adaptive, robust, and efficient fine-tuning pipelines. This has implications for low-resource model customization and broader accessibility of LLM technologies."
+        }
+    ]
+}

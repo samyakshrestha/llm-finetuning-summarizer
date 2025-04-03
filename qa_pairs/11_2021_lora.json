@@ -1,0 +1,46 @@
+{
+    "paper_id": "11_2021_lora",
+    "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+    "qa_pairs": [
+        {
+            "question": "What key challenge in adapting large language models does LoRA aim to address?",
+            "answer": "LoRA addresses the challenge of full fine-tuning's computational inefficiency and storage overhead by enabling task adaptation without updating the full set of model parameters, making it feasible to adapt very large models like GPT-3 with significantly fewer trainable parameters."
+        },
+        {
+            "question": "How does LoRA modify the standard fine-tuning process for Transformers?",
+            "answer": "LoRA freezes the pre-trained model weights and instead injects trainable low-rank matrices into each layer of the Transformer architecture, allowing efficient training of only the adaptation component while keeping the core model unchanged."
+        },
+        {
+            "question": "What is meant by the 'intrinsic rank' hypothesis that motivates LoRA?",
+            "answer": "The intrinsic rank hypothesis suggests that the updates required during fine-tuning lie in a low-dimensional subspace, implying that low-rank adaptations can capture the necessary task-specific information without needing full-rank parameter updates."
+        },
+        {
+            "question": "What empirical benefits does LoRA demonstrate over full fine-tuning on models like GPT-3 and RoBERTa?",
+            "answer": "LoRA achieves comparable or superior performance to full fine-tuning on models like GPT-3 and RoBERTa while reducing trainable parameters by up to 10,000 times and requiring 3\u00d7 less GPU memory, with no added inference latency."
+        },
+        {
+            "question": "How does LoRA enable efficient task-switching in a deployed system?",
+            "answer": "LoRA allows the pre-trained model to remain frozen while swapping out small, task-specific low-rank adaptation matrices, enabling fast and memory-efficient switching between tasks without reloading or duplicating the full model."
+        },
+        {
+            "question": "Why does LoRA introduce no additional inference latency?",
+            "answer": "Because LoRA's trainable matrices can be merged with the frozen pre-trained weights after training, the final model operates just like a standard Transformer without requiring extra computation during inference."
+        },
+        {
+            "question": "How does LoRA compare to other parameter-efficient methods like adapters or prefix tuning?",
+            "answer": "LoRA avoids the inference latency introduced by adapters and the input sequence reduction caused by prefix tuning, offering a more efficient and latency-free alternative while remaining compatible with such methods."
+        },
+        {
+            "question": "What makes LoRA particularly appealing for users with limited computational resources?",
+            "answer": "LoRA dramatically reduces the number of trainable parameters and the optimizer state size, making fine-tuning feasible on limited hardware, and allows for fast deployment and task adaptation without retraining large models."
+        },
+        {
+            "question": "Is LoRA specific to language models, or can it generalize to other types of neural networks?",
+            "answer": "While LoRA is demonstrated on Transformer-based language models, its underlying principles are applicable to any neural network architecture involving dense layers, making it broadly generalizable."
+        },
+        {
+            "question": "What future research directions are suggested in the paper regarding LoRA?",
+            "answer": "Future research directions include combining LoRA with other adaptation methods, understanding how LoRA transforms pre-trained features for downstream tasks, identifying principled ways to choose LoRA injection points, and investigating rank-deficiency in both updates and weights."
+        }
+    ]
+}

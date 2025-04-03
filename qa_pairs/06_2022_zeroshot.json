@@ -1,0 +1,54 @@
+{
+    "paper_id": "06_2022_zeroshot",
+    "title": "Finetuned Language Models are Zero-Shot Learners",
+    "qa_pairs": [
+        {
+            "question": "What is the central hypothesis of the paper 'Finetuned Language Models are Zero-Shot Learners'?",
+            "answer": "The central hypothesis is that instruction tuning\u2014finetuning large language models on a collection of datasets expressed via natural language instructions\u2014substantially improves zero-shot performance on unseen tasks."
+        },
+        {
+            "question": "What is FLAN and how was it created?",
+            "answer": "FLAN (Finetuned Language Net) is a 137B parameter language model created by instruction tuning a pretrained model on over 60 NLP datasets, each described using natural language instruction templates."
+        },
+        {
+            "question": "How does FLAN's zero-shot performance compare to GPT-3's?",
+            "answer": "FLAN outperforms GPT-3 (175B) in zero-shot performance on 20 out of 25 datasets and even surpasses GPT-3's few-shot performance on six benchmarks including ANLI, RTE, BoolQ, AI2-ARC, OpenbookQA, and StoryCloze."
+        },
+        {
+            "question": "What evaluation strategy was used to ensure FLAN was tested on unseen tasks?",
+            "answer": "FLAN was evaluated using a leave-one-cluster-out strategy, where datasets were grouped by task type and each cluster was held out during instruction tuning to ensure zero-shot evaluation on entirely unseen tasks."
+        },
+        {
+            "question": "What did the ablation studies in the paper reveal about instruction tuning?",
+            "answer": "The studies showed that increasing the number of instruction-tuning task clusters improves generalization to unseen tasks, and that the benefits of instruction tuning only emerge at sufficient model scale."
+        },
+        {
+            "question": "What types of tasks benefit most from instruction tuning according to the results?",
+            "answer": "Tasks that are naturally verbalized via instructions\u2014such as natural language inference, question answering, translation, and structured text generation\u2014benefit the most from instruction tuning."
+        },
+        {
+            "question": "What limitations of the FLAN study do the authors acknowledge?",
+            "answer": "The authors acknowledge limitations in subjectively assigning tasks to clusters, restricting instructions to brief phrases, potential data overlap with pretraining corpora, and the high computational cost of serving a 137B parameter model."
+        },
+        {
+            "question": "Why is FLAN\u2019s performance improvement on unseen tasks significant for model generalization?",
+            "answer": "It suggests that task-specific labeled data, when phrased as instructions, can improve cross-task generalization, offering a path toward building generalist models rather than narrowly specialized ones."
+        },
+        {
+            "question": "How does instruction tuning differ from few-shot prompting or traditional finetuning?",
+            "answer": "Instruction tuning uses supervised finetuning on many tasks described via instructions, blending the benefits of pretraining and prompting. Unlike few-shot prompting, it trains the model directly on instruction-following, and unlike traditional finetuning, it supports generalization to unseen tasks."
+        },
+        {
+            "question": "What are the practical implications of FLAN's success for future NLP research?",
+            "answer": "FLAN's success highlights the value of instruction tuning for scalable zero-shot learning and motivates further research into multi-task generalization, bias mitigation, and instruction-based learning paradigms."
+        },
+        {
+            "question": "What makes instruction tuning a promising strategy for zero-shot learning?",
+            "answer": "It teaches models to follow natural language instructions across diverse tasks, enabling them to generalize better to new instructions without requiring additional examples or task-specific finetuning."
+        },
+        {
+            "question": "How might FLAN's approach influence the development of generalist language models?",
+            "answer": "By showing that instruction tuning enhances performance on unseen tasks, FLAN paves the way for generalist models that can handle a wide variety of tasks without requiring separate models or extensive manual adaptation."
+        }
+    ]
+}

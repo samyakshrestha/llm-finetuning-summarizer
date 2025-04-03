@@ -1,0 +1,46 @@
+{
+    "paper_id": "14_2023_PEFT_for_PLM",
+    "title": "Parameter-Efficient Fine-Tuning Methods for Pretrained Language Models: A Critical Review and Assessment",
+    "qa_pairs": [
+        {
+            "question": "What is the core motivation behind the development of Parameter-Efficient Fine-Tuning (PEFT) methods for Pretrained Language Models (PLMs)?",
+            "answer": "The primary motivation for PEFT is to address the computational and memory inefficiencies of full fine-tuning, especially as PLMs grow to billions of parameters. PEFT allows model adaptation by updating only a small fraction of parameters, preserving pre-trained knowledge while avoiding overfitting and reducing resource costs."
+        },
+        {
+            "question": "What are the five categories of PEFT methods identified in the paper\u2019s taxonomy?",
+            "answer": "The paper classifies PEFT methods into five categories: (1) Additive Fine-Tuning, (2) Partial Fine-Tuning, (3) Reparameterized Fine-Tuning, (4) Hybrid Fine-Tuning, and (5) Unified Fine-Tuning. This taxonomy provides a structured framework for understanding the diverse strategies within PEFT."
+        },
+        {
+            "question": "How does additive fine-tuning differ from partial fine-tuning within the PEFT framework?",
+            "answer": "Additive fine-tuning introduces new trainable components (e.g., adapters or LoRA modules) without modifying the original model weights, while partial fine-tuning involves updating only a selected subset of the existing parameters within the pre-trained model, such as the final layers or attention blocks."
+        },
+        {
+            "question": "What experimental evidence does the paper provide to support the efficacy of PEFT methods in terms of parameter efficiency and memory savings?",
+            "answer": "Through experiments on encoder-based RoBERTa, encoder-decoder-based T5, and decoder-based LLaMA models, the paper shows that most PEFT methods achieve comparable or superior performance to full fine-tuning while significantly reducing trainable parameter counts and memory usage. Notably, QLoRA achieves dramatic reductions in memory footprint."
+        },
+        {
+            "question": "Why is PEFT considered a potential solution to catastrophic forgetting in fine-tuning PLMs?",
+            "answer": "PEFT mitigates catastrophic forgetting by preserving the majority of the pre-trained model's parameters and only updating a small subset, thus maintaining the original knowledge while adapting to new tasks without overwriting core representations."
+        },
+        {
+            "question": "What are some of the broader applications of PEFT methods explored in the paper?",
+            "answer": "The paper explores PEFT\u2019s applications in multi-task learning, cross-lingual transfer, and backdoor attack and defense, highlighting the flexibility and robustness of PEFT approaches across diverse use cases and threat models."
+        },
+        {
+            "question": "What limitations in previous PEFT surveys does this paper aim to address?",
+            "answer": "Previous surveys either lacked coverage of recent methods or failed to conduct empirical evaluations. This paper addresses both gaps by providing an up-to-date taxonomy of PEFT methods and conducting extensive experiments on eleven representative methods across multiple tasks and architectures."
+        },
+        {
+            "question": "Why is QLoRA highlighted as particularly effective among PEFT methods?",
+            "answer": "QLoRA stands out due to its ability to drastically reduce the memory footprint required during fine-tuning without compromising model performance, making it especially suitable for adapting large models on memory-constrained hardware."
+        },
+        {
+            "question": "What role does PEFT play in democratizing access to large language models?",
+            "answer": "By enabling model fine-tuning with a fraction of the parameters and memory requirements, PEFT allows researchers and practitioners with limited computational resources to adapt and deploy powerful language models, thus lowering the barrier to entry."
+        },
+        {
+            "question": "What future directions does the paper propose for the continued development of PEFT methods?",
+            "answer": "The paper encourages future work in areas such as developing unified PEFT frameworks, automating hyperparameter selection, improving cross-task generalizability, and optimizing PEFT for low-resource environments and multilingual applications."
+        }
+    ]
+}
