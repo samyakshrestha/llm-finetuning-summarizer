@@ -1,0 +1,46 @@
+{
+    "paper_id": "01_2025_lori",
+    "title": "LoRI: Reducing Cross-Task Interference in Multi-Task Low-Rank Adaptation",
+    "qa_pairs": [
+        {
+            "question": "What is the primary innovation introduced by the LoRI method for parameter-efficient fine-tuning?",
+            "answer": "LoRI introduces a novel approach that freezes the projection matrices A as random projections and sparsifies the matrices B using task-specific masks, thereby significantly reducing trainable parameters while minimizing cross-task interference."
+        },
+        {
+            "question": "How does LoRI reduce the number of trainable parameters compared to traditional LoRA?",
+            "answer": "LoRI reduces the number of trainable parameters by keeping matrix A fixed as a random projection and sparsifying matrix B using task-specific masks, eliminating the need to train both matrices and reducing redundancy."
+        },
+        {
+            "question": "Why is sparsity in matrix B important in LoRI?",
+            "answer": "Sparsity in matrix B enables LoRI to retain only the most critical elements necessary for adaptation, reducing parameter count and mitigating cross-task interference during adapter merging and continual learning."
+        },
+        {
+            "question": "How does LoRI improve the process of merging adapters in multi-task scenarios?",
+            "answer": "LoRI enables more effective adapter merging by using fixed, randomly initialized projection matrices A, which maps task-specific adapters into approximately orthogonal subspaces, thus reducing parameter interference."
+        },
+        {
+            "question": "What mechanism does LoRI use to mitigate catastrophic forgetting in continual learning?",
+            "answer": "LoRI mitigates catastrophic forgetting by applying task-specific sparse masks to matrix B, which isolates parameter updates across tasks and preserves knowledge from previous adaptations, including safety alignment."
+        },
+        {
+            "question": "On what benchmark did LoRI with 90% sparsity in B outperform LoRA, and by how much?",
+            "answer": "LoRI with 90% sparsity in B outperformed LoRA by 17.3% on the HumanEval benchmark using the Llama-3 model."
+        },
+        {
+            "question": "How does LoRI compare to full fine-tuning and other PEFT methods in terms of performance and efficiency?",
+            "answer": "LoRI matches or outperforms full fine-tuning and other PEFT methods across multiple domains while using up to 95% fewer trainable parameters than LoRA, demonstrating both high performance and high efficiency."
+        },
+        {
+            "question": "What types of tasks were used to evaluate LoRI's effectiveness?",
+            "answer": "LoRI was evaluated on a diverse set of tasks, including natural language understanding, mathematical reasoning, code generation, and safety alignment."
+        },
+        {
+            "question": "What potential future directions do the authors propose for extending LoRI?",
+            "answer": "The authors suggest exploring structured sparsity patterns like block sparsity or head pruning and adapting LoRI to multi-modal models such as diffusion and vision-language systems."
+        },
+        {
+            "question": "What is the broader significance of LoRI in the context of PEFT and LLM deployment?",
+            "answer": "LoRI provides a lightweight, modular, and scalable solution for adapting LLMs with minimal overhead, making it particularly suited for multi-task learning, safety-critical alignment, and efficient deployment on resource-constrained hardware."
+        }
+    ]
+}

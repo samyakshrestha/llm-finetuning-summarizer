@@ -1,0 +1,46 @@
+{
+    "paper_id": "03_2025_beyond_qa_pairs",
+    "title": "Beyond QA Pairs: Assessing Parameter-Efficient Fine-Tuning for Fact Embedding in LLMs",
+    "qa_pairs": [
+        {
+            "question": "What is the primary goal of the study presented in 'Beyond QA Pairs'?",
+            "answer": "The study aims to assess the effectiveness of Parameter-Efficient Fine-Tuning (PEFT) for embedding domain-specific facts into LLMs, focusing on the impact of QA pair categorization and synthetic dataset generation techniques."
+        },
+        {
+            "question": "How are QA pairs categorized in this study, and what is the purpose of this categorization?",
+            "answer": "QA pairs are classified into \u2018Factual\u2019 and \u2018Conceptual\u2019 categories using a BERT-based classifier. The purpose is to investigate how the nature of QA pairs influences the effectiveness of PEFT."
+        },
+        {
+            "question": "What were the findings regarding models trained on conceptual vs factual QA datasets?",
+            "answer": "Models fine-tuned on conceptual datasets consistently outperformed those trained on factual datasets across multiple evaluations."
+        },
+        {
+            "question": "Which synthetic dataset generation techniques are evaluated in this work, and which one performs better?",
+            "answer": "The paper evaluates D-RAG and D-Naive synthetic data generation methods. D-Naive outperformed D-RAG in fine-tuning effectiveness, largely due to better retrieval performance."
+        },
+        {
+            "question": "What was the significance of the product recommendation task in the data center domain?",
+            "answer": "The task served as a practical demonstration showing that a Llama-2 7B model fine-tuned with PEFT on just 1,000 instruction-based QA pairs significantly outperformed the baseline in generating product recommendations."
+        },
+        {
+            "question": "Why do the authors argue that PEFT may not be optimal for factual embedding?",
+            "answer": "The study shows that while PEFT is effective for instruction tuning, it struggles with embedding factual information as effectively, likely due to its limited parameter update scope."
+        },
+        {
+            "question": "What conclusions do the authors draw about the volume versus quality of QA data in PEFT?",
+            "answer": "They conclude that sheer quantity of QA pairs is insufficient; quality and conceptual depth are far more critical for successful PEFT."
+        },
+        {
+            "question": "What limitations of D-RAG were identified in the study?",
+            "answer": "D-RAG's limitations were attributed to the poor performance of its underlying vector database retriever, leading to suboptimal training data quality."
+        },
+        {
+            "question": "How do the authors suggest future research should improve PEFT for fact embedding?",
+            "answer": "Future research should explore improvements in retrieval systems used by D-RAG, and consider more refined QA classification and data generation strategies."
+        },
+        {
+            "question": "What is the key insight this paper contributes to the field of LLM fine-tuning?",
+            "answer": "The paper highlights that PEFT's success hinges more on dataset composition\u2014especially the conceptual quality of QA pairs\u2014than on volume alone, and that careful use-case targeting is essential."
+        }
+    ]
+}
