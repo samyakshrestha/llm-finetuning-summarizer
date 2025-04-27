@@ -1,0 +1,677 @@
+[
+  {
+    "arxiv_id": "2410.05248v2",
+    "title": "SFTMix: Elevating Language Model Instruction Tuning with Mixup Recipe",
+    "summary": "To acquire instruction-following capabilities, large language models (LLMs)\nundergo instruction tuning, where they are trained on instruction-response\npairs using next-token prediction (NTP). Efforts to improve instruction tuning\noften focus on higher-quality supervised fine-tuning (SFT) datasets, typically\nrequiring data filtering with proprietary LLMs or human annotation. In this\npaper, we take a different approach by proposing SFTMix, a novel Mixup-based\nrecipe that elevates LLM instruction tuning beyond the conventional NTP\nparadigm, without relying on well-curated datasets. Observing that LLMs exhibit\nuneven confidence across the semantic representation space, we argue that\nexamples with different confidence levels should play distinct roles in\ninstruction tuning--confident data is prone to overfitting, while unconfident\ndata is harder to generalize. Based on this insight, SFTMix leverages training\ndynamics to identify examples with varying confidence levels, interpolates them\nto bridge the confidence gap, and applies a Mixup-based regularization to\nsupport learning on these additional, interpolated examples. By propagating\nsupervision signals across confidence regions and encouraging linear behavior\nbetween them, SFTMix mitigates overfitting in confident examples while\nenhancing generalization in unconfident ones. We demonstrate the effectiveness\nof SFTMix in both instruction-following and healthcare-specific SFT tasks, with\nconsistent improvements across LLM families and SFT datasets of varying sizes\nand qualities. Extensive analyses across six directions highlight SFTMix's\ncompatibility with data selection, adaptability to compute-constrained\nscenarios, and scalability to broader applications.",
+    "pdf_url": "http://arxiv.org/pdf/2410.05248v2",
+    "published": "2024-10-07T17:52:21Z",
+    "relevance_score": 17,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2411.16775v1",
+    "title": "Parameter Efficient Instruction Tuning: An Empirical Study",
+    "summary": "Instruction tuning has become an important step for finetuning pretrained\nlanguage models to better follow human instructions and generalize on various\ntasks. Nowadays, pretrained language models become increasingly larger, and\nfull parameter finetuning is overwhelmingly costly. Therefore, Parameter\nEfficient Finetuning (PEFT) has arisen as a cost-effective practice for\ninstruction tuning because of significantly smaller computational, memory, and\nstorage cost compared to full finetuning. Despite their widespread adaptations,\nthe vast hyperparameter spaces, the number of PEFT methods, the different focus\nof instruction tuning capabilities make disentangling the impact of each aspect\ndifficult. This study systematically investigates several representative PEFT\nmethods, surveying the effect of hyperparameter choices including training\nhyperparameters and PEFT-specific hyperparameters, how different models sizes\nand the number of instruction tasks affect the performance,\nin-task-distribution memorization and open instruction following capability.\nOur empirical study shows that only LoRA and adapter can get close to full\nfinetuning with ideal training settings. The ideal training setting includes an\nappropriate learning rate, largest LoRA rank or adapter size allowed and\ndiverse training tasks. On the other hand, LoRA and adapter suffer from\ntraining instability if such an ideal training condition is not met.\nAdditionally, LoRA requires a greater number of tasks for effective unseen task\ngeneralization, exhibit slower learning speed. Moreover, LoRA has weaker\ntask-level memorization. Lastly, LoRA and adapter fall short in complex\nreasoning, coding and long-form generation compared to finetuning in open\ninstruction tuning settings but it shows stronger capabilities compared to\nadapter.",
+    "pdf_url": "http://arxiv.org/pdf/2411.16775v1",
+    "published": "2024-11-25T07:06:09Z",
+    "relevance_score": 17,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2407.18242v3",
+    "title": "LoRA-Pro: Are Low-Rank Adapters Properly Optimized?",
+    "summary": "Low-rank adaptation, also known as LoRA, has emerged as a prominent method\nfor parameter-efficient fine-tuning of foundation models. Despite its\ncomputational efficiency, LoRA still yields inferior performance compared to\nfull fine-tuning. In this paper, we first uncover a fundamental connection\nbetween the optimization processes of LoRA and full fine-tuning: using LoRA for\noptimization is mathematically equivalent to full fine-tuning using a low-rank\ngradient for parameter updates. And this low-rank gradient can be expressed in\nterms of the gradients of the two low-rank matrices in LoRA. Leveraging this\ninsight, we introduce LoRA-Pro, a method that enhances LoRA's performance by\nstrategically adjusting the gradients of these low-rank matrices. This\nadjustment allows the low-rank gradient to more accurately approximate the full\nfine-tuning gradient, thereby narrowing the performance gap between LoRA and\nfull fine-tuning. Furthermore, we theoretically derive the optimal solutions\nfor adjusting the gradients of the low-rank matrices, applying them during\nfine-tuning in LoRA-Pro. We conduct extensive experiments across natural\nlanguage understanding, dialogue generation, mathematical reasoning, code\ngeneration, and image classification tasks, demonstrating that LoRA-Pro\nsubstantially improves LoRA's performance, effectively narrowing the gap with\nfull fine-tuning. Code is publicly available at\nhttps://github.com/mrflogs/LoRA-Pro.",
+    "pdf_url": "http://arxiv.org/pdf/2407.18242v3",
+    "published": "2024-07-25T17:57:12Z",
+    "relevance_score": 16,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2407.00066v3",
+    "title": "Compress then Serve: Serving Thousands of LoRA Adapters with Little\n  Overhead",
+    "summary": "Fine-tuning large language models (LLMs) with low-rank adaptations (LoRAs)\nhas become common practice, often yielding numerous copies of the same LLM\ndiffering only in their LoRA updates. This paradigm presents challenges for\nsystems that serve real-time responses to queries that each involve a different\nLoRA. Prior works optimize the design of such systems but still require\ncontinuous loading and offloading of LoRAs, as it is infeasible to store\nthousands of LoRAs in GPU memory. To mitigate this issue, we investigate the\nefficacy of compression when serving LoRAs. We propose a method for the joint\ncompression of LoRAs into a shared basis paired with LoRA-specific scaling\nmatrices. We extend our algorithm to learn clusters of LoRAs that are amenable\nto joint compression, allowing it to scale gracefully to large LoRA\ncollections. Our experiments with up to 1000 LoRAs demonstrate that compressed\nLoRAs preserve performance while offering major throughput gains in realistic\nserving scenarios with over a thousand LoRAs, maintaining 80% of the throughput\nof serving a single LoRA.",
+    "pdf_url": "http://arxiv.org/pdf/2407.00066v3",
+    "published": "2024-06-17T15:21:35Z",
+    "relevance_score": 16,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2405.17604v2",
+    "title": "LoRA-XS: Low-Rank Adaptation with Extremely Small Number of Parameters",
+    "summary": "The rapid expansion of large language models (LLMs) has underscored the need\nfor parameter-efficient fine-tuning methods, with LoRA (Low-Rank Adaptation)\nemerging as a popular solution. Although LoRA reduces the number of trainable\nparameters, serving multiple (task or user-specific) LoRA modules on top of a\nbase model still creates significant storage challenges. To address this, using\ntheoretical derivation, we introduce LoRA-XS (Low-Rank Adaptation with\neXtremely Small number of parameters), a novel low-rank adaptation method that\nconsiderably reduces the trainable parameters while showing superior or\ncompetitive performance. LoRA-XS achieves this by inserting a small, trainable\nr x r weight matrix between frozen low-rank matrices, which are constructed by\nSingular Value Decomposition (SVD) of the original weight matrix. This\nlightweight matrix enables fine-tuning with drastically reduced storage\nrequirements, making it feasible to deploy millions of personalized models\nwhile minimizing memory overhead. For instance, LoRA-XS achieves a remarkable\nreduction of trainable parameters by over 100x in 7B models compared to LoRA.\nOur evaluations across various benchmarks (including GLUE, GSM8K, MATH, and\neight commonsense reasoning datasets) demonstrate that LoRA-XS performs\ncompetitively or better than LoRA and other recent methods like VeRA while\nbeing significantly more parameter efficient. We also provide an extensive\nablation study on the importance of singular vectors in transformer weights,\nshedding light on the underlying mechanisms driving LoRA-XS's enhanced\nefficiency. These findings suggest that LoRA-XS is not only a storage-efficient\nalternative, but also a powerful tool for scaling and personalizing LLMs at\nunprecedented scales.",
+    "pdf_url": "http://arxiv.org/pdf/2405.17604v2",
+    "published": "2024-05-27T19:07:13Z",
+    "relevance_score": 16,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2502.13533v2",
+    "title": "Train Small, Infer Large: Memory-Efficient LoRA Training for Large\n  Language Models",
+    "summary": "Large Language Models (LLMs) have significantly advanced natural language\nprocessing with exceptional task generalization capabilities. Low-Rank Adaption\n(LoRA) offers a cost-effective fine-tuning solution, freezing the original\nmodel parameters and training only lightweight, low-rank adapter matrices.\nHowever, the memory footprint of LoRA is largely dominated by the original\nmodel parameters. To mitigate this, we propose LoRAM, a memory-efficient LoRA\ntraining scheme founded on the intuition that many neurons in\nover-parameterized LLMs have low training utility but are essential for\ninference. LoRAM presents a unique twist: it trains on a pruned (small) model\nto obtain pruned low-rank matrices, which are then recovered and utilized with\nthe original (large) model for inference. Additionally, minimal-cost continual\npre-training, performed by the model publishers in advance, aligns the\nknowledge discrepancy between pruned and original models. Our extensive\nexperiments demonstrate the efficacy of LoRAM across various pruning strategies\nand downstream tasks. For a model with 70 billion parameters, LoRAM enables\ntraining on a GPU with only 20G HBM, replacing an A100-80G GPU for LoRA\ntraining and 15 GPUs for full fine-tuning. Specifically, QLoRAM implemented by\nstructured pruning combined with 4-bit quantization, for LLaMA-3.1-70B\n(LLaMA-2-70B), reduces the parameter storage cost that dominates the memory\nusage in low-rank matrix training by 15.81$\\times$ (16.95$\\times$), while\nachieving dominant performance gains over both the original LLaMA-3.1-70B\n(LLaMA-2-70B) and LoRA-trained LLaMA-3.1-8B (LLaMA-2-13B). Code is available at\nhttps://github.com/junzhang-zj/LoRAM.",
+    "pdf_url": "http://arxiv.org/pdf/2502.13533v2",
+    "published": "2025-02-19T08:39:15Z",
+    "relevance_score": 15,
+    "pub_year": 2025
+  },
+  {
+    "arxiv_id": "2501.00353v1",
+    "title": "RAG-Instruct: Boosting LLMs with Diverse Retrieval-Augmented\n  Instructions",
+    "summary": "Retrieval-Augmented Generation (RAG) has emerged as a key paradigm for\nenhancing large language models (LLMs) by incorporating external knowledge.\nHowever, current RAG methods face two limitations: (1) they only cover limited\nRAG scenarios. (2) They suffer from limited task diversity due to the lack of a\ngeneral RAG dataset. To address these limitations, we propose RAG-Instruct, a\ngeneral method for synthesizing diverse and high-quality RAG instruction data\nbased on any source corpus. Our approach leverages (1) five RAG paradigms,\nwhich encompass diverse query-document relationships, and (2) instruction\nsimulation, which enhances instruction diversity and quality by utilizing the\nstrengths of existing instruction datasets. Using this method, we construct a\n40K instruction dataset from Wikipedia, comprehensively covering diverse RAG\nscenarios and tasks. Experiments demonstrate that RAG-Instruct effectively\nenhances LLMs' RAG capabilities, achieving strong zero-shot performance and\nsignificantly outperforming various RAG baselines across a diverse set of\ntasks. RAG-Instruct is publicly available at\nhttps://github.com/FreedomIntelligence/RAG-Instruct.",
+    "pdf_url": "http://arxiv.org/pdf/2501.00353v1",
+    "published": "2024-12-31T09:00:51Z",
+    "relevance_score": 15,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2410.20777v1",
+    "title": "KD-LoRA: A Hybrid Approach to Efficient Fine-Tuning with LoRA and\n  Knowledge Distillation",
+    "summary": "Large language models (LLMs) have demonstrated remarkable performance across\nvarious downstream tasks. However, the high computational and memory\nrequirements of LLMs are a major bottleneck. To address this,\nparameter-efficient fine-tuning (PEFT) methods such as low-rank adaptation\n(LoRA) have been proposed to reduce computational costs while ensuring minimal\nloss in performance. Additionally, knowledge distillation (KD) has been a\npopular choice for obtaining compact student models from teacher models. In\nthis work, we present KD-LoRA, a novel fine-tuning method that combines LoRA\nwith KD. Our results demonstrate that KD-LoRA achieves performance comparable\nto full fine-tuning (FFT) and LoRA while significantly reducing resource\nrequirements. Specifically, KD-LoRA retains 98% of LoRA's performance on the\nGLUE benchmark, while being 40% more compact. Additionally, KD-LoRA reduces GPU\nmemory usage by 30% compared to LoRA, while decreasing inference time by 30%\ncompared to both FFT and LoRA. We evaluate KD-LoRA across three encoder-only\nmodels: BERT, RoBERTa, and DeBERTaV3. Code is available at\nhttps://github.com/rambodazimi/KD-LoRA.",
+    "pdf_url": "http://arxiv.org/pdf/2410.20777v1",
+    "published": "2024-10-28T06:38:24Z",
+    "relevance_score": 15,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2409.16167v3",
+    "title": "Merging LoRAs like Playing LEGO: Pushing the Modularity of LoRA to\n  Extremes Through Rank-Wise Clustering",
+    "summary": "Low-Rank Adaptation (LoRA) has emerged as a popular technique for fine-tuning\nlarge language models (LLMs) to various domains due to its modular design and\nwidespread availability on platforms like Huggingface. This modularity has\nsparked interest in combining multiple LoRAs to enhance LLM capabilities.\nHowever, existing methods for LoRA composition primarily focus on task-specific\nadaptations that require additional training, and current model merging\ntechniques often fail to fully leverage LoRA's modular nature, leading to\nparameter interference and performance degradation. In this paper, we\ninvestigate the feasibility of disassembling and reassembling multiple LoRAs at\na finer granularity, analogous to assembling LEGO blocks. We introduce the\nconcept of Minimal Semantic Units (MSUs), where the parameters corresponding to\neach rank in LoRA function as independent units. These MSUs demonstrate\npermutation invariance and concatenation-summation equivalence properties,\nenabling flexible combinations to create new LoRAs. Building on these insights,\nwe propose the LoRA-LEGO framework. This framework conducts rank-wise parameter\nclustering by grouping MSUs from different LoRAs into $k$ clusters. The\ncentroid of each cluster serves as a representative MSU, enabling the assembly\nof a merged LoRA with an adjusted rank of $k$. Additionally, we apply a dual\nreweighting strategy to optimize the scale of the merged LoRA. Experiments\nacross various benchmarks demonstrate that our method outperforms existing\napproaches in LoRA merging.",
+    "pdf_url": "http://arxiv.org/pdf/2409.16167v3",
+    "published": "2024-09-24T15:08:41Z",
+    "relevance_score": 15,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2405.00732v1",
+    "title": "LoRA Land: 310 Fine-tuned LLMs that Rival GPT-4, A Technical Report",
+    "summary": "Low Rank Adaptation (LoRA) has emerged as one of the most widely adopted\nmethods for Parameter Efficient Fine-Tuning (PEFT) of Large Language Models\n(LLMs). LoRA reduces the number of trainable parameters and memory usage while\nachieving comparable performance to full fine-tuning. We aim to assess the\nviability of training and serving LLMs fine-tuned with LoRA in real-world\napplications. First, we measure the quality of LLMs fine-tuned with quantized\nlow rank adapters across 10 base models and 31 tasks for a total of 310 models.\nWe find that 4-bit LoRA fine-tuned models outperform base models by 34 points\nand GPT-4 by 10 points on average. Second, we investigate the most effective\nbase models for fine-tuning and assess the correlative and predictive\ncapacities of task complexity heuristics in forecasting the outcomes of\nfine-tuning. Finally, we evaluate the latency and concurrency capabilities of\nLoRAX, an open-source Multi-LoRA inference server that facilitates the\ndeployment of multiple LoRA fine-tuned models on a single GPU using shared base\nmodel weights and dynamic adapter loading. LoRAX powers LoRA Land, a web\napplication that hosts 25 LoRA fine-tuned Mistral-7B LLMs on a single NVIDIA\nA100 GPU with 80GB memory. LoRA Land highlights the quality and\ncost-effectiveness of employing multiple specialized LLMs over a single,\ngeneral-purpose LLM.",
+    "pdf_url": "http://arxiv.org/pdf/2405.00732v1",
+    "published": "2024-04-29T04:01:45Z",
+    "relevance_score": 15,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2402.09997v1",
+    "title": "LoraRetriever: Input-Aware LoRA Retrieval and Composition for Mixed\n  Tasks in the Wild",
+    "summary": "Low-Rank Adaptation (LoRA) provides an effective yet efficient solution for\nfine-tuning large language models (LLM). The modular and plug-and-play nature\nof LoRA enables the integration of diverse domain-specific LoRAs to enhance the\ncapabilities of LLMs. Previous research on exploiting multiple LoRAs either\nfocuses on specific isolated downstream tasks or fixes the selection of LoRAs\nduring training. However, in real-world scenarios, LLMs receive diverse prompts\ncovering different tasks, and the pool of candidate LoRAs is often dynamically\nupdated. To bridge this gap, we propose LoraRetriever, a retrieve-then-compose\nframework that adaptively retrieves and composes multiple LoRAs according to\nthe input prompts. LoraRetriever contains three main components: firstly,\nidentifying and retrieving LoRAs relevant to the given input; secondly,\nformulating strategies for effectively integrating the retrieved LoRAs; and\nthirdly, developing efficient batch inference to accommodate heterogeneous\nrequests. Experimental results indicate that LoraRetriever consistently\noutperforms the baselines, highlighting its practical effectiveness and\nversatility.",
+    "pdf_url": "http://arxiv.org/pdf/2402.09997v1",
+    "published": "2024-02-15T15:02:46Z",
+    "relevance_score": 14,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2402.16843v2",
+    "title": "Multi-LoRA Composition for Image Generation",
+    "summary": "Low-Rank Adaptation (LoRA) is extensively utilized in text-to-image models\nfor the accurate rendition of specific elements like distinct characters or\nunique styles in generated images. Nonetheless, existing methods face\nchallenges in effectively composing multiple LoRAs, especially as the number of\nLoRAs to be integrated grows, thus hindering the creation of complex imagery.\nIn this paper, we study multi-LoRA composition through a decoding-centric\nperspective. We present two training-free methods: LoRA Switch, which\nalternates between different LoRAs at each denoising step, and LoRA Composite,\nwhich simultaneously incorporates all LoRAs to guide more cohesive image\nsynthesis. To evaluate the proposed approaches, we establish ComposLoRA, a new\ncomprehensive testbed as part of this research. It features a diverse range of\nLoRA categories with 480 composition sets. Utilizing an evaluation framework\nbased on GPT-4V, our findings demonstrate a clear improvement in performance\nwith our methods over the prevalent baseline, particularly evident when\nincreasing the number of LoRAs in a composition. The code, benchmarks, LoRA\nweights, and all evaluation details are available on our project website:\nhttps://maszhongming.github.io/Multi-LoRA-Composition.",
+    "pdf_url": "http://arxiv.org/pdf/2402.16843v2",
+    "published": "2024-02-26T18:59:18Z",
+    "relevance_score": 14,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2406.06564v3",
+    "title": "SwitchLoRA: Switched Low-Rank Adaptation Can Learn Full-Rank Information",
+    "summary": "In the training of large language models, parameter-efficient techniques such\nas LoRA optimize memory usage and reduce communication overhead and memory\nusage during the fine-tuning phase. However, applying such techniques directly\nduring the pre-training phase results in poor performance, primarily because\nthe premature implementation of low-rank training significantly reduces model\naccuracy. Existing methods like ReLoRA and GaLore have attempted to address\nthis challenge by updating the low-rank subspace. However, they still fall\nshort of achieving the accuracy of full-rank training. Specifically, ReLoRA\nrestricts the frequency of updates to preserve optimizer states consistency,\nhindering its ability to closely approximate full-rank training behavior.\nMeanwhile, GaLore relies on Singular Value Decomposition (SVD) to approximate\nthe full-rank space, which introduces accuracy loss during the approximation\nprocess. In this paper, we introduce SwitchLoRA, a parameter-efficient training\ntechnique that frequently and smoothly replaces the trainable parameters of\nLoRA adapters with alternative parameters. SwitchLoRA updates the low-rank\nsubspace incrementally, targeting only a few dimensions at a time to minimize\nthe impact on optimizer states. This allows a higher update frequency, thereby\nenhancing accuracy by enabling the updated parameters to more closely mimic\nfull-rank behavior during the pre-training phase. Our results demonstrate that\nSwitchLoRA actually surpasses full-rank training, reducing perplexity from\n15.23 to 15.01 on the LLaMA 1.3B model, while also cutting communication\noverhead by 54\\% and memory usage by 13\\%. Furthermore, after full fine-tuning\nthe SwitchLoRA pre-trained model and the full-rank pre-trained model on the\nGLUE benchmark, the SwitchLoRA pre-trained model showed an average accuracy\ngain of about 1\\% over the full-rank pre-trained model.",
+    "pdf_url": "http://arxiv.org/pdf/2406.06564v3",
+    "published": "2024-06-03T05:40:34Z",
+    "relevance_score": 14,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2410.01497v2",
+    "title": "DLP-LoRA: Efficient Task-Specific LoRA Fusion with a Dynamic,\n  Lightweight Plugin for Large Language Models",
+    "summary": "Recent advancements in Large Language Models (LLMs) have achieved robust\nperformance across diverse tasks, but fine-tuning these models for specific\ndomains remains resource-intensive. Parameter-Efficient Fine-Tuning (PEFT)\nmethods like Low-Rank Adaptation (LoRA) address this challenge by fine-tuning a\nsmall subset of parameters. However, existing methods for fusing multiple LoRAs\nlack dynamic fusion based on contextual inputs and often increase inference\ntime due to token-level operations. We propose DLP-LoRA, a Dynamic Lightweight\nPlugin that employs a mini-MLP module with only 5M parameters to dynamically\nfuse multiple LoRAs at the sentence level using top-p sampling strategies. This\napproach reduces inference time to less than twice that of single LoRA\ninference by leveraging parallel computation. Evaluations across 26\ntasks-including multiple-choice questions and question answering-demonstrate\nthat DLP-LoRA achieves an average accuracy of 92.34% on multiple-choice\ndatasets and significant improvements in BLEU and ROUGE scores on QA datasets,\noutperforming different LLMs backbones under composite task settings. DLP-LoRA\neffectively balances performance and efficiency, making it a practical solution\nfor dynamic multi-task adaptation in LLMs. Our code is available at\nhttps://github.com/MeCuping/DLP-LoRA.",
+    "pdf_url": "http://arxiv.org/pdf/2410.01497v2",
+    "published": "2024-10-02T12:45:52Z",
+    "relevance_score": 13,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2407.08044v2",
+    "title": "RoLoRA: Fine-tuning Rotated Outlier-free LLMs for Effective\n  Weight-Activation Quantization",
+    "summary": "Low-Rank Adaptation (LoRA), as a representative Parameter-Efficient\nFine-Tuning (PEFT)method, significantly enhances the training efficiency by\nupdating only a small portion of the weights in Large Language Models (LLMs).\nRecently, weight-only quantization techniques have also been applied to LoRA\nmethods to reduce the memory footprint of fine-tuning. However, applying\nweight-activation quantization to the LoRA pipeline is under-explored, and we\nobserve substantial performance degradation primarily due to the presence of\nactivation outliers. In this work, we propose RoLoRA, the first LoRA-based\nscheme for effective weight-activation quantization. RoLoRA utilizes rotation\nfor outlier elimination and proposes rotation-aware fine-tuning to preserve the\noutlier-free characteristics in rotated LLMs. Experimental results show RoLoRA\nconsistently improves low-bit LoRA convergence and post-training quantization\nrobustness in weight-activation settings. We evaluate RoLoRA across\nLLaMA2-7B/13B, LLaMA3-8B models, achieving up to 29.5% absolute accuracy gain\nof 4-bit weight-activation quantized LLaMA2- 13B on commonsense reasoning tasks\ncompared to LoRA baseline. We further demonstrate its effectiveness on Large\nMultimodal Models (LLaVA-1.5-7B). Codes are available at\nhttps://github.com/HuangOwen/RoLoRA",
+    "pdf_url": "http://arxiv.org/pdf/2407.08044v2",
+    "published": "2024-07-10T20:52:18Z",
+    "relevance_score": 13,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2410.07176v1",
+    "title": "Astute RAG: Overcoming Imperfect Retrieval Augmentation and Knowledge\n  Conflicts for Large Language Models",
+    "summary": "Retrieval-Augmented Generation (RAG), while effective in integrating external\nknowledge to address the limitations of large language models (LLMs), can be\nundermined by imperfect retrieval, which may introduce irrelevant, misleading,\nor even malicious information. Despite its importance, previous studies have\nrarely explored the behavior of RAG through joint analysis on how errors from\nimperfect retrieval attribute and propagate, and how potential conflicts arise\nbetween the LLMs' internal knowledge and external sources. We find that\nimperfect retrieval augmentation might be inevitable and quite harmful, through\ncontrolled analysis under realistic conditions. We identify the knowledge\nconflicts between LLM-internal and external knowledge from retrieval as a\nbottleneck to overcome in the post-retrieval stage of RAG. To render LLMs\nresilient to imperfect retrieval, we propose Astute RAG, a novel RAG approach\nthat adaptively elicits essential information from LLMs' internal knowledge,\niteratively consolidates internal and external knowledge with source-awareness,\nand finalizes the answer according to information reliability. Our experiments\nusing Gemini and Claude demonstrate that Astute RAG significantly outperforms\nprevious robustness-enhanced RAG methods. Notably, Astute RAG is the only\napproach that matches or exceeds the performance of LLMs without RAG under\nworst-case scenarios. Further analysis reveals that Astute RAG effectively\nresolves knowledge conflicts, improving the reliability and trustworthiness of\nRAG systems.",
+    "pdf_url": "http://arxiv.org/pdf/2410.07176v1",
+    "published": "2024-10-09T17:59:58Z",
+    "relevance_score": 12,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2308.10792v8",
+    "title": "Instruction Tuning for Large Language Models: A Survey",
+    "summary": "This paper surveys research works in the quickly advancing field of\ninstruction tuning (IT), which can also be referred to as supervised\nfine-tuning (SFT)\\footnote{In this paper, unless specified otherwise,\nsupervised fine-tuning (SFT) and instruction tuning (IT) are used\ninterchangeably.}, a crucial technique to enhance the capabilities and\ncontrollability of large language models (LLMs). Instruction tuning refers to\nthe process of further training LLMs on a dataset consisting of\n\\textsc{(instruction, output)} pairs in a supervised fashion, which bridges the\ngap between the next-word prediction objective of LLMs and the users' objective\nof having LLMs adhere to human instructions. In this work, we make a systematic\nreview of the literature, including the general methodology of SFT, the\nconstruction of SFT datasets, the training of SFT models, and applications to\ndifferent modalities, domains and application, along with analysis on aspects\nthat influence the outcome of SFT (e.g., generation of instruction outputs,\nsize of the instruction dataset, etc). We also review the potential pitfalls of\nSFT along with criticism against it, along with efforts pointing out current\ndeficiencies of existing strategies and suggest some avenues for fruitful\nresearch. Project Page: github.com/xiaoya-li/Instruction-Tuning-Survey",
+    "pdf_url": "http://arxiv.org/pdf/2308.10792v8",
+    "published": "2023-08-21T15:35:16Z",
+    "relevance_score": 12,
+    "pub_year": 2023
+  },
+  {
+    "arxiv_id": "2406.18676v2",
+    "title": "Understand What LLM Needs: Dual Preference Alignment for\n  Retrieval-Augmented Generation",
+    "summary": "Retrieval-augmented generation (RAG) has demonstrated effectiveness in\nmitigating the hallucination problem of large language models (LLMs). However,\nthe difficulty of aligning the retriever with the diverse LLMs' knowledge\npreferences inevitably poses an inevitable challenge in developing a reliable\nRAG system. To address this issue, we propose DPA-RAG, a universal framework\ndesigned to align diverse knowledge preferences within RAG systems.\nSpecifically, we initially introduce a preference knowledge construction\npipline and incorporate five novel query augmentation strategies to alleviate\npreference data scarcity. Based on preference data, DPA-RAG accomplishes both\nexternal and internal preference alignment: 1) It jointly integrate pair-wise,\npoint-wise, and contrastive preference alignment abilities into the reranker,\nachieving external preference alignment among RAG components. 2) It further\nintroduces a pre-aligned stage before vanilla Supervised Fine-tuning (SFT),\nenabling LLMs to implicitly capture knowledge aligned with their reasoning\npreferences, achieving LLMs' internal alignment. Experimental results across\nfour knowledge-intensive QA datasets demonstrate that DPA-RAG outperforms all\nbaselines and seamlessly integrates both black-box and open-sourced LLM\nreaders. Further qualitative analysis and discussions also provide empirical\nguidance for achieving reliable RAG systems. Our code is publicly available at\nhttps://github.com/dongguanting/DPA-RAG.",
+    "pdf_url": "http://arxiv.org/pdf/2406.18676v2",
+    "published": "2024-06-26T18:26:53Z",
+    "relevance_score": 11,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2411.15804v1",
+    "title": "LoRA-Mini : Adaptation Matrices Decomposition and Selective Training",
+    "summary": "The rapid advancements in large language models (LLMs) have revolutionized\nnatural language processing, creating an increased need for efficient,\ntask-specific fine-tuning methods. Traditional fine-tuning of LLMs involves\nupdating a large number of parameters, which is computationally expensive and\nmemory-intensive. Low-Rank Adaptation (LoRA) has emerged as a promising\nsolution, enabling parameter-efficient fine-tuning by reducing the number of\ntrainable parameters. However, while LoRA reduces the number of trainable\nparameters, LoRA modules still create significant storage challenges. We\npropose LoRA-Mini, an optimized adaptation of LoRA that improves parameter\nefficiency by splitting low-rank matrices into four parts, with only the two\ninner matrices being trainable. This approach achieves upto a 20x reduction\ncompared to standard LoRA in the number of trainable parameters while\npreserving performance levels comparable to standard LoRA, addressing both\ncomputational and storage efficiency in LLM fine-tuning.",
+    "pdf_url": "http://arxiv.org/pdf/2411.15804v1",
+    "published": "2024-11-24T12:21:14Z",
+    "relevance_score": 11,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2309.12307v3",
+    "title": "LongLoRA: Efficient Fine-tuning of Long-Context Large Language Models",
+    "summary": "We present LongLoRA, an efficient fine-tuning approach that extends the\ncontext sizes of pre-trained large language models (LLMs), with limited\ncomputation cost. Typically, training LLMs with long context sizes is\ncomputationally expensive, requiring extensive training hours and GPU\nresources. For example, training on the context length of 8192 needs 16x\ncomputational costs in self-attention layers as that of 2048. In this paper, we\nspeed up the context extension of LLMs in two aspects. On the one hand,\nalthough dense global attention is needed during inference, fine-tuning the\nmodel can be effectively and efficiently done by sparse local attention. The\nproposed shifted sparse attention effectively enables context extension,\nleading to non-trivial computation saving with similar performance to\nfine-tuning with vanilla attention. Particularly, it can be implemented with\nonly two lines of code in training, while being optional in inference. On the\nother hand, we revisit the parameter-efficient fine-tuning regime for context\nexpansion. Notably, we find that LoRA for context extension works well under\nthe premise of trainable embedding and normalization. LongLoRA combines this\nimproved LoRA with S^2-Attn. LongLoRA demonstrates strong empirical results on\nvarious tasks on Llama2 models from 7B/13B to 70B. LongLoRA extends Llama2 7B\nfrom 4k context to 100k, or Llama2 70B to 32k on a single 8x A100 machine.\nLongLoRA extends models' context while retaining their original architectures,\nand is compatible with most existing techniques, like Flash-Attention2. In\naddition, we further conduct supervised fine-tuning with LongLoRA and our long\ninstruction-following LongAlpaca dataset.",
+    "pdf_url": "http://arxiv.org/pdf/2309.12307v3",
+    "published": "2023-09-21T17:59:11Z",
+    "relevance_score": 11,
+    "pub_year": 2023
+  },
+  {
+    "arxiv_id": "2112.06825v2",
+    "title": "VL-Adapter: Parameter-Efficient Transfer Learning for\n  Vision-and-Language Tasks",
+    "summary": "Recently, fine-tuning language models pre-trained on large text corpora have\nprovided huge improvements on vision-and-language (V&L) tasks as well as on\npure language tasks. However, fine-tuning the entire parameter set of\npre-trained models becomes impractical since the model size is growing rapidly.\nHence, in this paper, we introduce adapter-based parameter-efficient transfer\nlearning techniques to V&L models such as VL-BART and VLT5. We evaluate our\nmethods in a unified multi-task setup on both image-text and video-text\nbenchmarks. For the image-text tasks, we use four diverse V&L datasets: VQAv2,\nGQA, NLVR2 , and MSCOCO image captioning. For video-text tasks, we use TVQA,\nHow2QA, TVC, and YC2C. With careful training and thorough experiments, we\nbenchmark three popular adapter-based methods (Adapter, Hyperformer, Compacter)\nagainst the standard full fine-tuning and the recently proposed prompt-tuning\napproach. We also enhance the efficiency and performance of adapters by sharing\ntheir weights to attain knowledge across tasks. Our results demonstrate that\ntraining the adapter with the weight-sharing technique (4.18% of total\nparameters for image-text tasks and 3.39% for video-text tasks) can match the\nperformance of fine-tuning the entire model. Lastly, we present a comprehensive\nanalysis including the combination of adapter and task-specific prompts and the\nimpact of V&L pre-training on adapters. Our code is available at:\nhttps://github.com/ylsung/VL_adapter.",
+    "pdf_url": "http://arxiv.org/pdf/2112.06825v2",
+    "published": "2021-12-13T17:35:26Z",
+    "relevance_score": 11,
+    "pub_year": 2021
+  },
+  {
+    "arxiv_id": "2408.02545v1",
+    "title": "RAG Foundry: A Framework for Enhancing LLMs for Retrieval Augmented\n  Generation",
+    "summary": "Implementing Retrieval-Augmented Generation (RAG) systems is inherently\ncomplex, requiring deep understanding of data, use cases, and intricate design\ndecisions. Additionally, evaluating these systems presents significant\nchallenges, necessitating assessment of both retrieval accuracy and generative\nquality through a multi-faceted approach. We introduce RAG Foundry, an\nopen-source framework for augmenting large language models for RAG use cases.\nRAG Foundry integrates data creation, training, inference and evaluation into a\nsingle workflow, facilitating the creation of data-augmented datasets for\ntraining and evaluating large language models in RAG settings. This integration\nenables rapid prototyping and experimentation with various RAG techniques,\nallowing users to easily generate datasets and train RAG models using internal\nor specialized knowledge sources. We demonstrate the framework effectiveness by\naugmenting and fine-tuning Llama-3 and Phi-3 models with diverse RAG\nconfigurations, showcasing consistent improvements across three\nknowledge-intensive datasets. Code is released as open-source in\nhttps://github.com/IntelLabs/RAGFoundry.",
+    "pdf_url": "http://arxiv.org/pdf/2408.02545v1",
+    "published": "2024-08-05T15:16:24Z",
+    "relevance_score": 10,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2410.20625v1",
+    "title": "LoRA Done RITE: Robust Invariant Transformation Equilibration for LoRA\n  Optimization",
+    "summary": "Low-rank adaption (LoRA) is a widely used parameter-efficient finetuning\nmethod for LLM that reduces memory requirements. However, current LoRA\noptimizers lack transformation invariance, meaning the actual updates to the\nweights depends on how the two LoRA factors are scaled or rotated. This\ndeficiency leads to inefficient learning and sub-optimal solutions in practice.\nThis paper introduces LoRA-RITE, a novel adaptive matrix preconditioning method\nfor LoRA optimization, which can achieve transformation invariance and remain\ncomputationally efficient. We provide theoretical analysis to demonstrate the\nbenefit of our method and conduct experiments on various LLM tasks with\ndifferent models including Gemma 2B, 7B, and mT5-XXL. The results demonstrate\nconsistent improvements against existing optimizers. For example, replacing\nAdam with LoRA-RITE during LoRA fine-tuning of Gemma-2B yielded 4.6\\% accuracy\ngain on Super-Natural Instructions and 3.5\\% accuracy gain across other four\nLLM benchmarks (HellaSwag, ArcChallenge, GSM8K, OpenBookQA).",
+    "pdf_url": "http://arxiv.org/pdf/2410.20625v1",
+    "published": "2024-10-27T22:57:12Z",
+    "relevance_score": 10,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2402.12354v2",
+    "title": "LoRA+: Efficient Low Rank Adaptation of Large Models",
+    "summary": "In this paper, we show that Low Rank Adaptation (LoRA) as originally\nintroduced in Hu et al. (2021) leads to suboptimal finetuning of models with\nlarge width (embedding dimension). This is due to the fact that adapter\nmatrices A and B in LoRA are updated with the same learning rate. Using scaling\narguments for large width networks, we demonstrate that using the same learning\nrate for A and B does not allow efficient feature learning. We then show that\nthis suboptimality of LoRA can be corrected simply by setting different\nlearning rates for the LoRA adapter matrices A and B with a well-chosen ratio.\nWe call this proposed algorithm LoRA$+$. In our extensive experiments, LoRA$+$\nimproves performance (1-2 $\\%$ improvements) and finetuning speed (up to $\\sim$\n2X SpeedUp), at the same computational cost as LoRA.",
+    "pdf_url": "http://arxiv.org/pdf/2402.12354v2",
+    "published": "2024-02-19T18:33:49Z",
+    "relevance_score": 10,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2405.09673v2",
+    "title": "LoRA Learns Less and Forgets Less",
+    "summary": "Low-Rank Adaptation (LoRA) is a widely-used parameter-efficient finetuning\nmethod for large language models. LoRA saves memory by training only low rank\nperturbations to selected weight matrices. In this work, we compare the\nperformance of LoRA and full finetuning on two target domains, programming and\nmathematics. We consider both the instruction finetuning (approximately 100K\nprompt-response pairs) and continued pretraining (20B unstructured tokens) data\nregimes. Our results show that, in the standard low-rank settings, LoRA\nsubstantially underperforms full finetuning. Nevertheless, LoRA better\nmaintains the base model's performance on tasks outside the target domain. We\nshow that LoRA mitigates forgetting more than common regularization techniques\nsuch as weight decay and dropout; it also helps maintain more diverse\ngenerations. Finally, we show that full finetuning learns perturbations with a\nrank that is 10-100X greater than typical LoRA configurations, possibly\nexplaining some of the reported gaps. We conclude by proposing best practices\nfor finetuning with LoRA.",
+    "pdf_url": "http://arxiv.org/pdf/2405.09673v2",
+    "published": "2024-05-15T19:27:45Z",
+    "relevance_score": 10,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2407.11046v4",
+    "title": "A Survey on LoRA of Large Language Models",
+    "summary": "Low-Rank Adaptation~(LoRA), which updates the dense neural network layers\nwith pluggable low-rank matrices, is one of the best performed parameter\nefficient fine-tuning paradigms. Furthermore, it has significant advantages in\ncross-task generalization and privacy-preserving. Hence, LoRA has gained much\nattention recently, and the number of related literature demonstrates\nexponential growth. It is necessary to conduct a comprehensive overview of the\ncurrent progress on LoRA. This survey categorizes and reviews the progress from\nthe perspectives of (1) downstream adaptation improving variants that improve\nLoRA's performance on downstream tasks; (2) cross-task generalization methods\nthat mix multiple LoRA plugins to achieve cross-task generalization; (3)\nefficiency-improving methods that boost the computation-efficiency of LoRA; (4)\ndata privacy-preserving methods that use LoRA in federated learning; (5)\napplication. Besides, this survey also discusses the future directions in this\nfield. At last, we provide a Github\npage~\\footnote{\\href{https://github.com/ZJU-LLMs/Awesome-LoRAs.git}{https://github.com/ZJU-LLMs/Awesome-LoRAs.git}}\nfor readers to check the updates and initiate discussions on this survey paper.",
+    "pdf_url": "http://arxiv.org/pdf/2407.11046v4",
+    "published": "2024-07-08T12:32:10Z",
+    "relevance_score": 10,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2410.09437v3",
+    "title": "MTL-LoRA: Low-Rank Adaptation for Multi-Task Learning",
+    "summary": "Parameter-efficient fine-tuning (PEFT) has been widely employed for domain\nadaptation, with LoRA being one of the most prominent methods due to its\nsimplicity and effectiveness. However, in multi-task learning (MTL) scenarios,\nLoRA tends to obscure the distinction between tasks by projecting sparse\nhigh-dimensional features from different tasks into the same dense\nlow-dimensional intrinsic space. This leads to task interference and suboptimal\nperformance for LoRA and its variants. To tackle this challenge, we propose\nMTL-LoRA, which retains the advantages of low-rank adaptation while\nsignificantly enhancing MTL capabilities. MTL-LoRA augments LoRA by\nincorporating additional task-adaptive parameters that differentiate\ntask-specific information and capture shared knowledge across various tasks\nwithin low-dimensional spaces. This approach enables pre-trained models to\njointly adapt to different target domains with a limited number of trainable\nparameters. Comprehensive experimental results, including evaluations on public\nacademic benchmarks for natural language understanding, commonsense reasoning,\nand image-text understanding, as well as real-world industrial text Ads\nrelevance datasets, demonstrate that MTL-LoRA outperforms LoRA and its various\nvariants with comparable or even fewer learnable parameters in MTL setting.",
+    "pdf_url": "http://arxiv.org/pdf/2410.09437v3",
+    "published": "2024-10-12T08:32:26Z",
+    "relevance_score": 10,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2410.19694v1",
+    "title": "Less is More: Extreme Gradient Boost Rank-1 Adaption for Efficient\n  Finetuning of LLMs",
+    "summary": "Fine-tuning Large Language Models (LLMs) has become a crucial technique for\nadapting pre-trained models to downstream tasks. However, the enormous size of\nLLMs poses significant challenges in terms of computational complexity and\nresource requirements. Low-Rank Adaptation (LoRA) has emerged as a promising\nsolution. However, there exists a gap between the practical performance of\nlow-rank adaptations and its theoretical optimum. In this work, we propose\neXtreme Gradient Boosting LoRA (XGBLoRA), a novel framework that bridges this\ngap by leveraging the power of ensemble learning. Inspired by gradient\nboosting, XGBLoRA iteratively learns and merges a sequence of LoRA adaptations\nto refine model predictions. It achieves better performance than the standard\nLoRA, while enjoying the computational efficiency of rank-1 adaptations. We\nprovide theoretical analysis to show the convergence and optimality of our\napproach, and conduct extensive experiments on a range of natural language\nprocessing tasks. The results demonstrate that XGBLoRA consistently outperforms\nstandard LoRA and achieves performance comparable to full fine-tuning with\nsignificantly fewer trainable parameters. This work advances\nparameter-efficient fine-tuning for LLMs, and offers a promising solution for\nadapting LLMs to downstream tasks while optimizing performance and efficiency.",
+    "pdf_url": "http://arxiv.org/pdf/2410.19694v1",
+    "published": "2024-10-25T17:07:13Z",
+    "relevance_score": 10,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2310.17513v3",
+    "title": "The Expressive Power of Low-Rank Adaptation",
+    "summary": "Low-Rank Adaptation (LoRA), a parameter-efficient fine-tuning method that\nleverages low-rank adaptation of weight matrices, has emerged as a prevalent\ntechnique for fine-tuning pre-trained models such as large language models and\ndiffusion models. Despite its huge success in practice, the theoretical\nunderpinnings of LoRA have largely remained unexplored. This paper takes the\nfirst step to bridge this gap by theoretically analyzing the expressive power\nof LoRA. We prove that, for fully connected neural networks, LoRA can adapt any\nmodel $f$ to accurately represent any smaller target model $\\overline{f}$ if\nLoRA-rank $\\geq(\\text{width of }f) \\times \\frac{\\text{depth of\n}\\overline{f}}{\\text{depth of }f}$. We also quantify the approximation error\nwhen LoRA-rank is lower than the threshold. For Transformer networks, we show\nany model can be adapted to a target model of the same size with\nrank-$(\\frac{\\text{embedding size}}{2})$ LoRA adapters.",
+    "pdf_url": "http://arxiv.org/pdf/2310.17513v3",
+    "published": "2023-10-26T16:08:33Z",
+    "relevance_score": 10,
+    "pub_year": 2023
+  },
+  {
+    "arxiv_id": "2311.09578v2",
+    "title": "Tied-Lora: Enhancing parameter efficiency of LoRA with weight tying",
+    "summary": "We introduce Tied-LoRA, a novel paradigm leveraging weight tying and\nselective training to enhance the parameter efficiency of Low-rank Adaptation\n(LoRA). Our exploration encompasses different plausible combinations of\nparameter training and freezing, coupled with weight tying, aimed at\nidentifying the optimal trade-off between performance and the count of\ntrainable parameters. Across $5$ diverse tasks and two foundational language\nmodels with different parameter counts, our experiments provide comprehensive\ninsights into the inherent trade-offs between efficiency and performance.\n  Our findings reveal a specific Tied-LoRA configuration that distinguishes\nitself by showcasing comparable performance to LoRA across multiple tasks while\nutilizing only a fraction of the parameters employed by the standard LoRA\nmethod, particularly at elevated ranks. This underscores the efficacy of\nTied-LoRA in achieving impressive results with significantly reduced model\ncomplexity.",
+    "pdf_url": "http://arxiv.org/pdf/2311.09578v2",
+    "published": "2023-11-16T05:29:39Z",
+    "relevance_score": 10,
+    "pub_year": 2023
+  },
+  {
+    "arxiv_id": "2502.13847v1",
+    "title": "DH-RAG: A Dynamic Historical Context-Powered Retrieval-Augmented\n  Generation Method for Multi-Turn Dialogue",
+    "summary": "Retrieval-Augmented Generation (RAG) systems have shown substantial benefits\nin applications such as question answering and multi-turn dialogue\n\\citep{lewis2020retrieval}. However, traditional RAG methods, while leveraging\nstatic knowledge bases, often overlook the potential of dynamic historical\ninformation in ongoing conversations. To bridge this gap, we introduce DH-RAG,\na Dynamic Historical Context-Powered Retrieval-Augmented Generation Method for\nMulti-Turn Dialogue. DH-RAG is inspired by human cognitive processes that\nutilize both long-term memory and immediate historical context in\nconversational responses \\citep{stafford1987conversational}. DH-RAG is\nstructured around two principal components: a History-Learning based Query\nReconstruction Module, designed to generate effective queries by synthesizing\ncurrent and prior interactions, and a Dynamic History Information Updating\nModule, which continually refreshes historical context throughout the dialogue.\nThe center of DH-RAG is a Dynamic Historical Information database, which is\nfurther refined by three strategies within the Query Reconstruction Module:\nHistorical Query Clustering, Hierarchical Matching, and Chain of Thought\nTracking. Experimental evaluations show that DH-RAG significantly surpasses\nconventional models on several benchmarks, enhancing response relevance,\ncoherence, and dialogue quality.",
+    "pdf_url": "http://arxiv.org/pdf/2502.13847v1",
+    "published": "2025-02-19T16:10:43Z",
+    "relevance_score": 9,
+    "pub_year": 2025
+  },
+  {
+    "arxiv_id": "2502.15436v1",
+    "title": "Fed-SB: A Silver Bullet for Extreme Communication Efficiency and\n  Performance in (Private) Federated LoRA Fine-Tuning",
+    "summary": "Low-Rank Adaptation (LoRA) has become ubiquitous for efficiently fine-tuning\nfoundation models. However, federated fine-tuning using LoRA is challenging due\nto suboptimal updates arising from traditional federated averaging of\nindividual adapters. Existing solutions either incur prohibitively high\ncommunication cost that scales linearly with the number of clients or suffer\nfrom performance degradation due to limited expressivity. We introduce\nFederated Silver Bullet (Fed-SB), a novel approach for federated fine-tuning of\nLLMs using LoRA-SB, a recently proposed low-rank adaptation method. LoRA-SB\noptimally aligns the optimization trajectory with the ideal low-rank full\nfine-tuning projection by learning a small square matrix (R) between adapters B\nand A, keeping other components fixed. Direct averaging of R guarantees exact\nupdates, substantially reducing communication cost, which remains independent\nof the number of clients, and enables scalability. Fed-SB achieves\nstate-of-the-art performance across commonsense reasoning, arithmetic\nreasoning, and language inference tasks while reducing communication costs by\nup to 230x. In private settings, Fed-SB further improves performance by (1)\nreducing trainable parameters, thereby lowering the noise required for\ndifferential privacy and (2) avoiding noise amplification introduced by other\nmethods. Overall, Fed-SB establishes a new Pareto frontier in the tradeoff\nbetween communication and performance, offering an efficient and scalable\nsolution for both private and non-private federated fine-tuning. Our code is\npublicly available at https://github.com/CERT-Lab/fed-sb.",
+    "pdf_url": "http://arxiv.org/pdf/2502.15436v1",
+    "published": "2025-02-21T13:05:19Z",
+    "relevance_score": 9,
+    "pub_year": 2025
+  },
+  {
+    "arxiv_id": "2411.16525v1",
+    "title": "Fundamental Limits of Prompt Tuning Transformers: Universality, Capacity\n  and Efficiency",
+    "summary": "We investigate the statistical and computational limits of prompt tuning for\ntransformer-based foundation models. Our key contributions are prompt tuning on\n\\textit{single-head} transformers with only a \\textit{single} self-attention\nlayer: (i) is universal, and (ii) supports efficient (even almost-linear time)\nalgorithms under the Strong Exponential Time Hypothesis (SETH). Statistically,\nwe prove that prompt tuning on such simplest possible transformers are\nuniversal approximators for sequence-to-sequence Lipschitz functions. In\naddition, we provide an exponential-in-$dL$ and -in-$(1/\\epsilon)$ lower bound\non the required soft-prompt tokens for prompt tuning to memorize any dataset\nwith 1-layer, 1-head transformers. Computationally, we identify a phase\ntransition in the efficiency of prompt tuning, determined by the norm of the\n\\textit{soft-prompt-induced} keys and queries, and provide an upper bound\ncriterion. Beyond this criterion, no sub-quadratic (efficient) algorithm for\nprompt tuning exists under SETH. Within this criterion, we showcase our theory\nby proving the existence of almost-linear time prompt tuning inference\nalgorithms. These fundamental limits provide important necessary conditions for\ndesigning expressive and efficient prompt tuning methods for practitioners.",
+    "pdf_url": "http://arxiv.org/pdf/2411.16525v1",
+    "published": "2024-11-25T16:12:17Z",
+    "relevance_score": 9,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2409.02119v1",
+    "title": "CoRA: Optimizing Low-Rank Adaptation with Common Subspace of Large\n  Language Models",
+    "summary": "In fine-tuning large language models (LLMs), conserving computational\nresources while maintaining effectiveness and improving outcomes within the\nsame computational constraints is crucial. The Low-Rank Adaptation (LoRA)\nstrategy balances efficiency and performance in fine-tuning large models by\nreducing the number of trainable parameters and computational costs. However,\ncurrent advancements in LoRA might be focused on its fine-tuning methodologies,\nwith not as much exploration as might be expected into further compression of\nLoRA. Since most of LoRA's parameters might still be superfluous, this may lead\nto unnecessary wastage of computational resources. In this paper, we propose\n\\textbf{CoRA}: leveraging shared knowledge to optimize LoRA training by\nsubstituting its matrix $B$ with a common subspace from large models. Our\ntwo-fold method includes (1) Freezing the substitute matrix $B$ to halve\nparameters while training matrix $A$ for specific tasks and (2) Using the\nsubstitute matrix $B$ as an enhanced initial state for the original matrix $B$,\nachieving improved results with the same parameters. Our experiments show that\nthe first approach achieves the same efficacy as the original LoRA fine-tuning\nwhile being more efficient than halving parameters. At the same time, the\nsecond approach has some improvements compared to LoRA's original fine-tuning\nperformance. They generally attest to the effectiveness of our work.",
+    "pdf_url": "http://arxiv.org/pdf/2409.02119v1",
+    "published": "2024-08-31T12:48:27Z",
+    "relevance_score": 9,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2405.03003v1",
+    "title": "Parameter-Efficient Fine-Tuning with Discrete Fourier Transform",
+    "summary": "Low-rank adaptation~(LoRA) has recently gained much interest in fine-tuning\nfoundation models. It effectively reduces the number of trainable parameters by\nincorporating low-rank matrices $A$ and $B$ to represent the weight change,\ni.e., $\\Delta W=BA$. Despite LoRA's progress, it faces storage challenges when\nhandling extensive customization adaptations or larger base models. In this\nwork, we aim to further compress trainable parameters by enjoying the powerful\nexpressiveness of the Fourier transform. Specifically, we introduce FourierFT,\nwhich treats $\\Delta W$ as a matrix in the spatial domain and learns only a\nsmall fraction of its spectral coefficients. With the trained spectral\ncoefficients, we implement the inverse discrete Fourier transform to recover\n$\\Delta W$. Empirically, our FourierFT method shows comparable or better\nperformance with fewer parameters than LoRA on various tasks, including natural\nlanguage understanding, natural language generation, instruction tuning, and\nimage classification. For example, when performing instruction tuning on the\nLLaMA2-7B model, FourierFT surpasses LoRA with only 0.064M trainable\nparameters, compared to LoRA's 33.5M. Our code is released at\n\\url{https://github.com/Chaos96/fourierft}.",
+    "pdf_url": "http://arxiv.org/pdf/2405.03003v1",
+    "published": "2024-05-05T17:15:24Z",
+    "relevance_score": 9,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2403.14946v1",
+    "title": "A Single Linear Layer Yields Task-Adapted Low-Rank Matrices",
+    "summary": "Low-Rank Adaptation (LoRA) is a widely used Parameter-Efficient Fine-Tuning\n(PEFT) method that updates an initial weight matrix $W_0$ with a delta matrix\n$\\Delta W$ consisted by two low-rank matrices $A$ and $B$. A previous study\nsuggested that there is correlation between $W_0$ and $\\Delta W$. In this\nstudy, we aim to delve deeper into relationships between $W_0$ and low-rank\nmatrices $A$ and $B$ to further comprehend the behavior of LoRA. In particular,\nwe analyze a conversion matrix that transform $W_0$ into low-rank matrices,\nwhich encapsulates information about the relationships. Our analysis reveals\nthat the conversion matrices are similar across each layer. Inspired by these\nfindings, we hypothesize that a single linear layer, which takes each layer's\n$W_0$ as input, can yield task-adapted low-rank matrices. To confirm this\nhypothesis, we devise a method named Conditionally Parameterized LoRA\n(CondLoRA) that updates initial weight matrices with low-rank matrices derived\nfrom a single linear layer. Our empirical results show that CondLoRA maintains\na performance on par with LoRA, despite the fact that the trainable parameters\nof CondLoRA are fewer than those of LoRA. Therefore, we conclude that \"a single\nlinear layer yields task-adapted low-rank matrices.\"",
+    "pdf_url": "http://arxiv.org/pdf/2403.14946v1",
+    "published": "2024-03-22T04:38:42Z",
+    "relevance_score": 9,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2411.19557v2",
+    "title": "Initialization using Update Approximation is a Silver Bullet for\n  Extremely Efficient Low-Rank Fine-Tuning",
+    "summary": "Low-rank adapters have become standard for efficiently fine-tuning large\nlanguage models (LLMs), but they often fall short of achieving the performance\nof full fine-tuning. We propose a method, LoRA Silver Bullet or LoRA-SB, that\napproximates full fine-tuning within low-rank subspaces using a carefully\ndesigned initialization strategy. We theoretically demonstrate that the\narchitecture of LoRA-XS, which inserts a learnable (r x r) matrix between B and\nA while keeping other matrices fixed, provides the precise conditions needed\nfor this approximation. We leverage its constrained update space to achieve\noptimal scaling for high-rank gradient updates while removing the need for\nhyperparameter tuning. We prove that our initialization offers an optimal\nlow-rank approximation of the initial gradient and preserves update directions\nthroughout training. Extensive experiments across mathematical reasoning,\ncommonsense reasoning, and language understanding tasks demonstrate that our\napproach exceeds the performance of standard LoRA while using \\textbf{27-90}\ntimes fewer learnable parameters, and comprehensively outperforms LoRA-XS. Our\nfindings establish that it is possible to simulate full fine-tuning in low-rank\nsubspaces, and achieve significant efficiency gains without sacrificing\nperformance. Our code is publicly available at\nhttps://github.com/RaghavSinghal10/lora-sb.",
+    "pdf_url": "http://arxiv.org/pdf/2411.19557v2",
+    "published": "2024-11-29T09:10:30Z",
+    "relevance_score": 9,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2411.05877v1",
+    "title": "Generative Adapter: Contextualizing Language Models in Parameters with A\n  Single Forward Pass",
+    "summary": "Large language models (LMs) are typically adapted to improve performance on\nnew contexts (\\eg text prompts that define new tasks or domains) through\nfine-tuning or prompting. However, there is an accuracy compute tradeoff --\nfine-tuning incurs significant training cost and prompting increases inference\noverhead. We introduce $GenerativeAdapter$, an effective and efficient\nadaptation method that directly maps new contexts to low-rank LM adapters,\nthereby significantly reducing inference overhead with no need for finetuning.\nThe adapter generator is trained via self-supervised learning, and can be used\nto adapt a single frozen LM for any new task simply by mapping the associated\ntask or domain context to a new adapter. We apply $GenerativeAdapter$ to two\npretrained LMs (Mistral-7B-Instruct and Llama2-7B-Chat) and evaluate the\nadapted models in three adaption scenarios: knowledge acquisition from\ndocuments, learning from demonstrations, and personalization for users. In\nStreamingQA, our approach is effective in injecting knowledge into the LM's\nparameters, achieving a 63.5% improvement in F1 score over the model with\nsupervised fine-tuning (from $19.5$ to $31.5$) for contexts as long as 32K\ntokens. In the MetaICL in-context learning evaluation, our method achieves an\naverage accuracy of $44.9$ across 26 tasks, outperforming the base model. On\nMSC, our method proves to be highly competitive in memorizing user information\nfrom conversations with a 4x reduction in computation and memory costs compared\nto prompting with full conversation history. Together, these results suggest\nthat $GenerativeAdapter$ should allow for general adaption to a wide range of\ndifferent contexts.",
+    "pdf_url": "http://arxiv.org/pdf/2411.05877v1",
+    "published": "2024-11-08T00:42:47Z",
+    "relevance_score": 9,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2308.12043v1",
+    "title": "IncreLoRA: Incremental Parameter Allocation Method for\n  Parameter-Efficient Fine-tuning",
+    "summary": "With the increasing size of pre-trained language models (PLMs), fine-tuning\nall the parameters in the model is not efficient, especially when there are a\nlarge number of downstream tasks, which incur significant training and storage\ncosts. Many parameter-efficient fine-tuning (PEFT) approaches have been\nproposed, among which, Low-Rank Adaptation (LoRA) is a representative approach\nthat injects trainable rank decomposition matrices into every target module.\nYet LoRA ignores the importance of parameters in different modules. To address\nthis problem, many works have been proposed to prune the parameters of LoRA.\nHowever, under limited training conditions, the upper bound of the rank of the\npruned parameter matrix is still affected by the preset values. We, therefore,\npropose IncreLoRA, an incremental parameter allocation method that adaptively\nadds trainable parameters during training based on the importance scores of\neach module. This approach is different from the pruning method as it is not\nlimited by the initial number of training parameters, and each parameter matrix\nhas a higher rank upper bound for the same training overhead. We conduct\nextensive experiments on GLUE to demonstrate the effectiveness of IncreLoRA.\nThe results show that our method owns higher parameter efficiency, especially\nwhen under the low-resource settings where our method significantly outperforms\nthe baselines. Our code is publicly available.",
+    "pdf_url": "http://arxiv.org/pdf/2308.12043v1",
+    "published": "2023-08-23T10:08:10Z",
+    "relevance_score": 9,
+    "pub_year": 2023
+  },
+  {
+    "arxiv_id": "2308.09804v1",
+    "title": "VL-PET: Vision-and-Language Parameter-Efficient Tuning via Granularity\n  Control",
+    "summary": "As the model size of pre-trained language models (PLMs) grows rapidly, full\nfine-tuning becomes prohibitively expensive for model training and storage. In\nvision-and-language (VL), parameter-efficient tuning (PET) techniques are\nproposed to integrate modular modifications (e.g., Adapter and LoRA) into\nencoder-decoder PLMs. By tuning a small set of trainable parameters, these\ntechniques perform on par with full fine-tuning. However, excessive modular\nmodifications and neglecting the functionality gap between the encoders and\ndecoders can lead to performance degradation, while existing PET techniques\n(e.g., VL-Adapter) overlook these critical issues. In this paper, we propose a\nVision-and-Language Parameter-Efficient Tuning (VL-PET) framework to impose\neffective control over modular modifications via a novel granularity-controlled\nmechanism. Considering different granularity-controlled matrices generated by\nthis mechanism, a variety of model-agnostic VL-PET modules can be instantiated\nfrom our framework for better efficiency and effectiveness trade-offs. We\nfurther propose lightweight PET module designs to enhance VL alignment and\nmodeling for the encoders and maintain text generation for the decoders.\nExtensive experiments conducted on four image-text tasks and four video-text\ntasks demonstrate the efficiency, effectiveness and transferability of our\nVL-PET framework. In particular, our VL-PET-large with lightweight PET module\ndesigns significantly outperforms VL-Adapter by 2.92% (3.41%) and LoRA by 3.37%\n(7.03%) with BART-base (T5-base) on image-text tasks. Furthermore, we validate\nthe enhanced effect of employing our VL-PET designs on existing PET techniques,\nenabling them to achieve significant performance improvements. Our code is\navailable at https://github.com/HenryHZY/VL-PET.",
+    "pdf_url": "http://arxiv.org/pdf/2308.09804v1",
+    "published": "2023-08-18T20:18:30Z",
+    "relevance_score": 9,
+    "pub_year": 2023
+  },
+  {
+    "arxiv_id": "2504.07448v1",
+    "title": "LoRI: Reducing Cross-Task Interference in Multi-Task Low-Rank Adaptation",
+    "summary": "Low-Rank Adaptation (LoRA) has emerged as a popular parameter-efficient\nfine-tuning (PEFT) method for Large Language Models (LLMs), yet it still incurs\nnotable overhead and suffers from parameter interference in multi-task\nscenarios. We propose LoRA with Reduced Interference (LoRI), a simple yet\neffective approach that freezes the projection matrices $A$ as random\nprojections and sparsifies the matrices $B$ using task-specific masks. This\ndesign substantially reduces the number of trainable parameters while\nmaintaining strong task performance. Moreover, LoRI minimizes cross-task\ninterference in adapter merging by leveraging the orthogonality between adapter\nsubspaces, and supports continual learning by using sparsity to mitigate\ncatastrophic forgetting. Extensive experiments across natural language\nunderstanding, mathematical reasoning, code generation, and safety alignment\ntasks demonstrate that LoRI outperforms full fine-tuning and existing PEFT\nmethods, while using up to 95% fewer trainable parameters than LoRA. In\nmulti-task experiments, LoRI enables effective adapter merging and continual\nlearning with reduced cross-task interference. Code is available at:\nhttps://github.com/juzhengz/LoRI",
+    "pdf_url": "http://arxiv.org/pdf/2504.07448v1",
+    "published": "2025-04-10T04:46:04Z",
+    "relevance_score": 8,
+    "pub_year": 2025
+  },
+  {
+    "arxiv_id": "2502.00089v1",
+    "title": "Ensembles of Low-Rank Expert Adapters",
+    "summary": "The training and fine-tuning of large language models (LLMs) often involve\ndiverse textual data from multiple sources, which poses challenges due to\nconflicting gradient directions, hindering optimization and specialization.\nThese challenges can undermine model generalization across tasks, resulting in\nreduced downstream performance. Recent research suggests that fine-tuning LLMs\non carefully selected, task-specific subsets of data can match or even surpass\nthe performance of using the entire dataset. Building on these insights, we\npropose the Ensembles of Low-Rank Expert Adapters (ELREA) framework to improve\nthe model's capability to handle diverse tasks. ELREA clusters the training\ninstructions based on their gradient directions, representing different areas\nof expertise and thereby reducing conflicts during optimization. Expert\nadapters are then trained on these clusters, utilizing the low-rank adaptation\n(LoRA) technique to ensure training efficiency and model scalability. During\ninference, ELREA combines predictions from the most relevant expert adapters\nbased on the input data's gradient similarity to the training clusters,\nensuring optimal adapter selection for each task. Experiments show that our\nmethod outperforms baseline LoRA adapters trained on the full dataset and other\nensemble approaches with similar training and inference complexity across a\nrange of domain-specific tasks.",
+    "pdf_url": "http://arxiv.org/pdf/2502.00089v1",
+    "published": "2025-01-31T18:07:21Z",
+    "relevance_score": 8,
+    "pub_year": 2025
+  },
+  {
+    "arxiv_id": "2412.00631v1",
+    "title": "ROSE: A Reward-Oriented Data Selection Framework for LLM Task-Specific\n  Instruction Tuning",
+    "summary": "Instruction tuning has underscored the significant potential of large\nlanguage models (LLMs) in producing more human-controllable and effective\noutputs in various domains. In this work, we focus on the data selection\nproblem for task-specific instruction tuning of LLMs. Prevailing methods\nprimarily rely on the crafted similarity metrics to select training data that\naligns with the test data distribution. The goal is to minimize instruction\ntuning loss on the test data, ultimately improving performance on the target\ntask. However, it has been widely observed that instruction tuning loss (i.e.,\ncross-entropy loss for next token prediction) in LLMs often fails to exhibit a\nmonotonic relationship with actual task performance. This misalignment\nundermines the effectiveness of current data selection methods for\ntask-specific instruction tuning. To address this issue, we introduce ROSE, a\nnovel Reward-Oriented inStruction data sElection method which leverages\npairwise preference loss as a reward signal to optimize data selection for\ntask-specific instruction tuning. Specifically, ROSE adapts an influence\nformulation to approximate the influence of training data points relative to a\nfew-shot preference validation set to select the most task-related training\ndata points. Experimental results show that by selecting just 5% of the\ntraining data using ROSE, our approach can achieve competitive results compared\nto fine-tuning with the full training dataset, and it surpasses other\nstate-of-the-art data selection methods for task-specific instruction tuning.\nOur qualitative analysis further confirms the robust generalizability of our\nmethod across multiple benchmark datasets and diverse model architectures.",
+    "pdf_url": "http://arxiv.org/pdf/2412.00631v1",
+    "published": "2024-12-01T01:01:09Z",
+    "relevance_score": 8,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2408.14572v1",
+    "title": "CURLoRA: Stable LLM Continual Fine-Tuning and Catastrophic Forgetting\n  Mitigation",
+    "summary": "This paper introduces CURLoRA, a novel approach to fine-tuning large language\nmodels (LLMs) that leverages CUR matrix decomposition in the context of\nLow-Rank Adaptation (LoRA). Our method addresses two critical challenges in LLM\nfine-tuning: mitigating catastrophic forgetting during continual learning and\nreducing the number of trainable parameters. We propose a unique modification\nto the CUR decomposition process, utilizing inverted probabilities for column\nand row selection which acts as an implicit regularization, and initializing\nthe $U$ matrix as a zero matrix, and only fine-tuning it. We demonstrate\nthrough experiments on multiple datasets that CURLoRA outperforms standard LoRA\nin mitigating catastrophic forgetting. It maintains model stability and\nperformance across tasks while significantly reducing the number of trainable\nparameters. Our results show that CURLoRA achieves very good and stable task\naccuracy while maintaining base model's perplexity scores fixed compared to\nLoRA upon continual fine-tuning, particularly in scenarios with limited data.",
+    "pdf_url": "http://arxiv.org/pdf/2408.14572v1",
+    "published": "2024-08-26T18:42:59Z",
+    "relevance_score": 8,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2403.17919v4",
+    "title": "LISA: Layerwise Importance Sampling for Memory-Efficient Large Language\n  Model Fine-Tuning",
+    "summary": "The machine learning community has witnessed impressive advancements since\nlarge language models (LLMs) first appeared. Yet, their massive memory\nconsumption has become a significant roadblock to large-scale training. For\ninstance, a 7B model typically requires at least 60 GB of GPU memory with full\nparameter training, which presents challenges for researchers without access to\nhigh-resource environments. Parameter Efficient Fine-Tuning techniques such as\nLow-Rank Adaptation (LoRA) have been proposed to alleviate this problem.\nHowever, in most large-scale fine-tuning settings, their performance does not\nreach the level of full parameter training because they confine the parameter\nsearch to a low-rank subspace. Attempting to complement this deficiency, we\ninvestigate the layerwise properties of LoRA on fine-tuning tasks and observe\nan unexpected but consistent skewness of weight norms across different layers.\nUtilizing this key observation, a surprisingly simple training strategy is\ndiscovered, which outperforms both LoRA and full parameter training in a wide\nrange of settings with memory costs as low as LoRA. We name it Layerwise\nImportance Sampled AdamW (LISA), a promising alternative for LoRA, which\napplies the idea of importance sampling to different layers in LLMs and\nrandomly freezes most middle layers during optimization. Experimental results\nshow that with similar or less GPU memory consumption, LISA surpasses LoRA or\neven full parameter tuning in downstream fine-tuning tasks, where LISA\nconsistently outperforms LoRA by over 10%-35% in terms of MT-Bench score while\nachieving on-par or better performance in MMLU, AGIEval and WinoGrande. On\nlarge models, specifically LLaMA-2-70B, LISA surpasses LoRA on MT-Bench, GSM8K,\nand PubMedQA, demonstrating its effectiveness across different domains.",
+    "pdf_url": "http://arxiv.org/pdf/2403.17919v4",
+    "published": "2024-03-26T17:55:02Z",
+    "relevance_score": 8,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2409.17538v5",
+    "title": "On the Implicit Relation Between Low-Rank Adaptation and Differential\n  Privacy",
+    "summary": "A significant approach in natural language processing involves large-scale\npre-training of models on general domain data followed by their adaptation to\nspecific tasks or domains. As models grow in size, full fine-tuning all of\ntheir parameters becomes increasingly impractical. To address this, some\nmethods for low-rank task adaptation of language models have been proposed,\ne.g., LoRA and FLoRA. These methods keep the pre-trained model weights fixed\nand incorporate trainable low-rank decomposition matrices into some layers of\nthe transformer architecture, called adapters. This approach significantly\nreduces the number of trainable parameters required for downstream tasks\ncompared to full fine-tuning all parameters. In this work, we look at low-rank\nadaptation from the lens of data privacy. We show theoretically that the\nlow-rank adaptation used in LoRA and FLoRA leads to the injection of some\nrandom noise into the batch gradients w.r.t the adapter parameters. We quantify\nthe variance of the injected noise and show that the smaller the adaptation\nrank, the larger the noise variance. By establishing a Berry-Esseen type bound\non the total variation distance between distribution of the injected noise and\na Gaussian distribution with the same variance, we show that the dynamics of\nlow-rank adaptation is close to that of differentially private fine-tuning of\nthe adapters. Finally, using Johnson-Lindenstrauss lemma, we show that when\naugmented with gradient scaling, low-rank adaptation is very close to\nperforming DPSGD algorithm with a fixed noise scale to fine-tune the adapters.\nSuggested by our theoretical findings and approved by our experimental results,\nwe show that low-rank adaptation, besides mitigating the space and\ncomputational complexities, implicitly provides a privacy protection w.r.t the\nfine-tuning data, without inducing the high space complexity of DPSGD.",
+    "pdf_url": "http://arxiv.org/pdf/2409.17538v5",
+    "published": "2024-09-26T04:56:49Z",
+    "relevance_score": 8,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2310.18356v2",
+    "title": "LoRAShear: Efficient Large Language Model Structured Pruning and\n  Knowledge Recovery",
+    "summary": "Large Language Models (LLMs) have transformed the landscape of artificial\nintelligence, while their enormous size presents significant challenges in\nterms of computational costs. We introduce LoRAShear, a novel efficient\napproach to structurally prune LLMs and recover knowledge. Given general LLMs,\nLoRAShear at first creates the dependency graphs over LoRA modules to discover\nminimally removal structures and analyze the knowledge distribution. It then\nproceeds progressive structured pruning on LoRA adaptors and enables inherent\nknowledge transfer to better preserve the information in the redundant\nstructures. To recover the lost knowledge during pruning, LoRAShear\nmeticulously studies and proposes a dynamic fine-tuning schemes with dynamic\ndata adaptors to effectively narrow down the performance gap to the full\nmodels. Numerical results demonstrate that by only using one GPU within a\ncouple of GPU days, LoRAShear effectively reduced footprint of LLMs by 20% with\nonly 1.0% performance degradation and significantly outperforms\nstate-of-the-arts. The source code will be available at\nhttps://github.com/microsoft/lorashear.",
+    "pdf_url": "http://arxiv.org/pdf/2310.18356v2",
+    "published": "2023-10-24T00:47:26Z",
+    "relevance_score": 8,
+    "pub_year": 2023
+  },
+  {
+    "arxiv_id": "2106.09685v2",
+    "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+    "summary": "An important paradigm of natural language processing consists of large-scale\npre-training on general domain data and adaptation to particular tasks or\ndomains. As we pre-train larger models, full fine-tuning, which retrains all\nmodel parameters, becomes less feasible. Using GPT-3 175B as an example --\ndeploying independent instances of fine-tuned models, each with 175B\nparameters, is prohibitively expensive. We propose Low-Rank Adaptation, or\nLoRA, which freezes the pre-trained model weights and injects trainable rank\ndecomposition matrices into each layer of the Transformer architecture, greatly\nreducing the number of trainable parameters for downstream tasks. Compared to\nGPT-3 175B fine-tuned with Adam, LoRA can reduce the number of trainable\nparameters by 10,000 times and the GPU memory requirement by 3 times. LoRA\nperforms on-par or better than fine-tuning in model quality on RoBERTa,\nDeBERTa, GPT-2, and GPT-3, despite having fewer trainable parameters, a higher\ntraining throughput, and, unlike adapters, no additional inference latency. We\nalso provide an empirical investigation into rank-deficiency in language model\nadaptation, which sheds light on the efficacy of LoRA. We release a package\nthat facilitates the integration of LoRA with PyTorch models and provide our\nimplementations and model checkpoints for RoBERTa, DeBERTa, and GPT-2 at\nhttps://github.com/microsoft/LoRA.",
+    "pdf_url": "http://arxiv.org/pdf/2106.09685v2",
+    "published": "2021-06-17T17:37:18Z",
+    "relevance_score": 8,
+    "pub_year": 2021
+  },
+  {
+    "arxiv_id": "2503.11880v1",
+    "title": "FedALT: Federated Fine-Tuning through Adaptive Local Training with\n  Rest-of-the-World LoRA",
+    "summary": "Fine-tuning large language models (LLMs) in federated settings enables\nprivacy-preserving adaptation but suffers from cross-client interference due to\nmodel aggregation. Existing federated LoRA fine-tuning methods, primarily based\non FedAvg, struggle with data heterogeneity, leading to harmful cross-client\ninterference and suboptimal personalization. In this work, we propose\n\\textbf{FedALT}, a novel personalized federated LoRA fine-tuning algorithm that\nfundamentally departs from FedAvg. Instead of using an aggregated model to\ninitialize local training, each client continues training its individual LoRA\nwhile incorporating shared knowledge through a separate Rest-of-the-World\n(RoTW) LoRA component. To effectively balance local adaptation and global\ninformation, FedALT introduces an adaptive mixer that dynamically learns\ninput-specific weightings between the individual and RoTW LoRA components using\nthe Mixture-of-Experts (MoE) principle. Through extensive experiments on NLP\nbenchmarks, we demonstrate that FedALT significantly outperforms\nstate-of-the-art personalized federated LoRA fine-tuning methods, achieving\nsuperior local adaptation without sacrificing computational efficiency.",
+    "pdf_url": "http://arxiv.org/pdf/2503.11880v1",
+    "published": "2025-03-14T21:07:46Z",
+    "relevance_score": 7,
+    "pub_year": 2025
+  },
+  {
+    "arxiv_id": "2502.12171v1",
+    "title": "GoRA: Gradient-driven Adaptive Low Rank Adaptation",
+    "summary": "Low-Rank Adaptation (LoRA) is a crucial method for efficiently fine-tuning\npretrained large language models (LLMs), with its performance largely\ninfluenced by two key factors: rank and initialization strategy. Numerous LoRA\nvariants have been proposed to enhance its performance by addressing these\nfactors. However, these variants often compromise LoRA's usability or\nefficiency. In this paper, we analyze the fundamental limitations of existing\nmethods and introduce a novel approach, GoRA (Gradient-driven Adaptive Low Rank\nAdaptation), which adaptively assigns ranks and initializes weights for\nlow-rank adapters simultaneously based on gradient information. Extensive\nexperimental results demonstrate that GoRA significantly improves performance\nwhile preserving the high usability and efficiency of LoRA. On the T5 model\nfine-tuned for the GLUE benchmark, GoRA achieves a 5.88-point improvement over\nLoRA and slightly surpasses full fine-tuning. Similarly, on the\nLlama3.1-8B-Base model fine-tuned for GSM8k tasks, GoRA outperforms LoRA with a\n5.13-point improvement and exceeds full fine-tuning in high-rank settings by a\nmargin of 2.05 points.",
+    "pdf_url": "http://arxiv.org/pdf/2502.12171v1",
+    "published": "2025-02-13T10:33:58Z",
+    "relevance_score": 7,
+    "pub_year": 2025
+  },
+  {
+    "arxiv_id": "2501.16404v1",
+    "title": "DynaPrompt: Dynamic Test-Time Prompt Tuning",
+    "summary": "Test-time prompt tuning enhances zero-shot generalization of vision-language\nmodels but tends to ignore the relatedness among test samples during inference.\nOnline test-time prompt tuning provides a simple way to leverage the\ninformation in previous test samples, albeit with the risk of prompt collapse\ndue to error accumulation. To enhance test-time prompt tuning, we propose\nDynaPrompt, short for dynamic test-time prompt tuning, exploiting relevant data\ndistribution information while reducing error accumulation. Built on an online\nprompt buffer, DynaPrompt adaptively selects and optimizes the relevant prompts\nfor each test sample during tuning. Specifically, we introduce a dynamic prompt\nselection strategy based on two metrics: prediction entropy and probability\ndifference. For unseen test data information, we develop dynamic prompt\nappending, which allows the buffer to append new prompts and delete the\ninactive ones. By doing so, the prompts are optimized to exploit beneficial\ninformation on specific test data, while alleviating error accumulation.\nExperiments on fourteen datasets demonstrate the effectiveness of dynamic\ntest-time prompt tuning.",
+    "pdf_url": "http://arxiv.org/pdf/2501.16404v1",
+    "published": "2025-01-27T09:10:06Z",
+    "relevance_score": 7,
+    "pub_year": 2025
+  },
+  {
+    "arxiv_id": "2407.02485v1",
+    "title": "RankRAG: Unifying Context Ranking with Retrieval-Augmented Generation in\n  LLMs",
+    "summary": "Large language models (LLMs) typically utilize the top-k contexts from a\nretriever in retrieval-augmented generation (RAG). In this work, we propose a\nnovel instruction fine-tuning framework RankRAG, which instruction-tunes a\nsingle LLM for the dual purpose of context ranking and answer generation in\nRAG. In particular, the instruction-tuned LLMs work surprisingly well by adding\na small fraction of ranking data into the training blend, and outperform\nexisting expert ranking models, including the same LLM exclusively fine-tuned\non a large amount of ranking data. For generation, we compare our model with\nmany strong baselines, including GPT-4-0613, GPT-4-turbo-2024-0409, and\nChatQA-1.5, an open-sourced model with the state-of-the-art performance on RAG\nbenchmarks. Specifically, our Llama3-RankRAG significantly outperforms\nLlama3-ChatQA-1.5 and GPT-4 models on nine knowledge-intensive benchmarks. In\naddition, it also performs comparably to GPT-4 on five RAG benchmarks in the\nbiomedical domain without instruction fine-tuning on biomedical data,\ndemonstrating its superb capability for generalization to new domains.",
+    "pdf_url": "http://arxiv.org/pdf/2407.02485v1",
+    "published": "2024-07-02T17:59:17Z",
+    "relevance_score": 7,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2412.18644v3",
+    "title": "DynaGRAG | Exploring the Topology of Information for Advancing Language\n  Understanding and Generation in Graph Retrieval-Augmented Generation",
+    "summary": "Graph Retrieval-Augmented Generation (GRAG or Graph RAG) architectures aim to\nenhance language understanding and generation by leveraging external knowledge.\nHowever, effectively capturing and integrating the rich semantic information\npresent in textual and structured data remains a challenge. To address this, a\nnovel GRAG framework, Dynamic Graph Retrieval-Agumented Generation (DynaGRAG),\nis proposed to focus on enhancing subgraph representation and diversity within\nthe knowledge graph. By improving graph density, capturing entity and relation\ninformation more effectively, and dynamically prioritizing relevant and diverse\nsubgraphs and information within them, the proposed approach enables a more\ncomprehensive understanding of the underlying semantic structure. This is\nachieved through a combination of de-duplication processes, two-step mean\npooling of embeddings, query-aware retrieval considering unique nodes, and a\nDynamic Similarity-Aware BFS (DSA-BFS) traversal algorithm. Integrating Graph\nConvolutional Networks (GCNs) and Large Language Models (LLMs) through hard\nprompting further enhances the learning of rich node and edge representations\nwhile preserving the hierarchical subgraph structure. Experimental results\ndemonstrate the effectiveness of DynaGRAG, showcasing the significance of\nenhanced subgraph representation and diversity for improved language\nunderstanding and generation.",
+    "pdf_url": "http://arxiv.org/pdf/2412.18644v3",
+    "published": "2024-12-24T16:06:53Z",
+    "relevance_score": 7,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2410.13408v2",
+    "title": "MoR: Mixture of Ranks for Low-Rank Adaptation Tuning",
+    "summary": "Low-Rank Adaptation (LoRA) drives research to align its performance with full\nfine-tuning. However, significant challenges remain: (1) Simply increasing the\nrank size of LoRA does not effectively capture high-rank information, which\nleads to a performance bottleneck.(2) MoE-style LoRA methods substantially\nincrease parameters and inference latency, contradicting the goals of efficient\nfine-tuning and ease of application. To address these challenges, we introduce\nMixture of Ranks (MoR), which learns rank-specific information for different\ntasks based on input and efficiently integrates multi-rank information. We\nfirstly propose a new framework that equates the integration of multiple LoRAs\nto expanding the rank of LoRA. Moreover, we hypothesize that low-rank LoRA\nalready captures sufficient intrinsic information, and MoR can derive high-rank\ninformation through mathematical transformations of the low-rank components.\nThus, MoR can reduces the learning difficulty of LoRA and enhances its\nmulti-task capabilities. MoR achieves impressive results, with MoR delivering a\n1.31\\% performance improvement while using only 93.93\\% of the parameters\ncompared to baseline methods.",
+    "pdf_url": "http://arxiv.org/pdf/2410.13408v2",
+    "published": "2024-10-17T10:14:52Z",
+    "relevance_score": 7,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2412.08946v1",
+    "title": "MoSLD: An Extremely Parameter-Efficient Mixture-of-Shared LoRAs for\n  Multi-Task Learning",
+    "summary": "Recently, LoRA has emerged as a crucial technique for fine-tuning large\npre-trained models, yet its performance in multi-task learning scenarios often\nfalls short. In contrast, the MoE architecture presents a natural solution to\nthis issue. However, it introduces challenges such as mutual interference of\ndata across multiple domains and knowledge forgetting of various tasks.\nAdditionally, MoE significantly increases the number of parameters, posing a\ncomputational cost challenge. Therefore, in this paper, we propose MoSLD, a\nmixture-of-shared-LoRAs model with a dropout strategy. MoSLD addresses these\nchallenges by sharing the upper projection matrix in LoRA among different\nexperts, encouraging the model to learn general knowledge across tasks, while\nstill allowing the lower projection matrix to focus on the unique features of\neach task. The application of dropout alleviates the imbalanced update of\nparameter matrix and mitigates parameter overfitting in LoRA. Extensive\nexperiments demonstrate that our model exhibits excellent performance in both\nsingle-task and multi-task scenarios, with robust out-of-domain generalization\ncapabilities.",
+    "pdf_url": "http://arxiv.org/pdf/2412.08946v1",
+    "published": "2024-12-12T05:22:49Z",
+    "relevance_score": 7,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2407.02987v2",
+    "title": "LoRA-Guard: Parameter-Efficient Guardrail Adaptation for Content\n  Moderation of Large Language Models",
+    "summary": "Guardrails have emerged as an alternative to safety alignment for content\nmoderation of large language models (LLMs). Existing model-based guardrails\nhave not been designed for resource-constrained computational portable devices,\nsuch as mobile phones, more and more of which are running LLM-based\napplications locally. We introduce LoRA-Guard, a parameter-efficient guardrail\nadaptation method that relies on knowledge sharing between LLMs and guardrail\nmodels. LoRA-Guard extracts language features from the LLMs and adapts them for\nthe content moderation task using low-rank adapters, while a dual-path design\nprevents any performance degradation on the generative task. We show that\nLoRA-Guard outperforms existing approaches with 100-1000x lower parameter\noverhead while maintaining accuracy, enabling on-device content moderation.",
+    "pdf_url": "http://arxiv.org/pdf/2407.02987v2",
+    "published": "2024-07-03T10:38:40Z",
+    "relevance_score": 7,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2403.09113v2",
+    "title": "AutoLoRA: Automatically Tuning Matrix Ranks in Low-Rank Adaptation Based\n  on Meta Learning",
+    "summary": "Large-scale pretraining followed by task-specific finetuning has achieved\ngreat success in various NLP tasks. Since finetuning all parameters of large\npretrained models poses substantial computational and memory challenges,\nseveral efficient finetuning methods have been developed. Among them, low-rank\nadaptation (LoRA), which finetunes low-rank incremental update matrices on top\nof frozen pretrained weights, has proven particularly effective. Nonetheless,\nLoRA's uniform rank assignment across all layers, along with its reliance on an\nexhaustive search to find the best rank, leads to high computation costs and\nsuboptimal finetuning performance. To address these limitations, we introduce\nAutoLoRA, a meta learning based framework for automatically identifying the\noptimal rank of each LoRA layer. AutoLoRA associates each rank-1 matrix in a\nlow-rank update matrix with a selection variable, which determines whether the\nrank-1 matrix should be discarded. A meta learning based method is developed to\nlearn these selection variables. The optimal rank is determined by thresholding\nthe values of these variables. Our comprehensive experiments on natural\nlanguage understanding, generation, and sequence labeling demonstrate the\neffectiveness of AutoLoRA.",
+    "pdf_url": "http://arxiv.org/pdf/2403.09113v2",
+    "published": "2024-03-14T05:29:35Z",
+    "relevance_score": 7,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2403.14119v3",
+    "title": "C-TPT: Calibrated Test-Time Prompt Tuning for Vision-Language Models via\n  Text Feature Dispersion",
+    "summary": "In deep learning, test-time adaptation has gained attention as a method for\nmodel fine-tuning without the need for labeled data. A prime exemplification is\nthe recently proposed test-time prompt tuning for large-scale vision-language\nmodels such as CLIP. Unfortunately, these prompts have been mainly developed to\nimprove accuracy, overlooking the importance of calibration, which is a crucial\naspect for quantifying prediction uncertainty. However, traditional calibration\nmethods rely on substantial amounts of labeled data, making them impractical\nfor test-time scenarios. To this end, this paper explores calibration during\ntest-time prompt tuning by leveraging the inherent properties of CLIP. Through\na series of observations, we find that the prompt choice significantly affects\nthe calibration in CLIP, where the prompts leading to higher text feature\ndispersion result in better-calibrated predictions. Introducing the Average\nText Feature Dispersion (ATFD), we establish its relationship with calibration\nerror and present a novel method, Calibrated Test-time Prompt Tuning (C-TPT),\nfor optimizing prompts during test-time with enhanced calibration. Through\nextensive experiments on different CLIP architectures and datasets, we show\nthat C-TPT can effectively improve the calibration of test-time prompt tuning\nwithout needing labeled data. The code is publicly accessible at\nhttps://github.com/hee-suk-yoon/C-TPT.",
+    "pdf_url": "http://arxiv.org/pdf/2403.14119v3",
+    "published": "2024-03-21T04:08:29Z",
+    "relevance_score": 7,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2310.00492v3",
+    "title": "From Language Modeling to Instruction Following: Understanding the\n  Behavior Shift in LLMs after Instruction Tuning",
+    "summary": "Large Language Models (LLMs) have achieved remarkable success, where\ninstruction tuning is the critical step in aligning LLMs with user intentions.\nIn this work, we investigate how the instruction tuning adjusts pre-trained\nmodels with a focus on intrinsic changes. Specifically, we first develop\nseveral local and global explanation methods, including a gradient-based method\nfor input-output attribution, and techniques for interpreting patterns and\nconcepts in self-attention and feed-forward layers. The impact of instruction\ntuning is then studied by comparing the explanations derived from the\npre-trained and instruction-tuned models. This approach provides an internal\nperspective of the model shifts on a human-comprehensible level. Our findings\nreveal three significant impacts of instruction tuning: 1) It empowers LLMs to\nrecognize the instruction parts of user prompts, and promotes the response\ngeneration constantly conditioned on the instructions. 2) It encourages the\nself-attention heads to capture more word-word relationships about instruction\nverbs. 3) It encourages the feed-forward networks to rotate their pre-trained\nknowledge toward user-oriented tasks. These insights contribute to a more\ncomprehensive understanding of instruction tuning and lay the groundwork for\nfuture work that aims at explaining and optimizing LLMs for various\napplications. Our code and data are publicly available at\nhttps://github.com/JacksonWuxs/Interpret_Instruction_Tuning_LLMs.",
+    "pdf_url": "http://arxiv.org/pdf/2310.00492v3",
+    "published": "2023-09-30T21:16:05Z",
+    "relevance_score": 7,
+    "pub_year": 2023
+  },
+  {
+    "arxiv_id": "2312.05677v3",
+    "title": "Batched Low-Rank Adaptation of Foundation Models",
+    "summary": "Low-Rank Adaptation (LoRA) has recently gained attention for fine-tuning\nfoundation models by incorporating trainable low-rank matrices, thereby\nreducing the number of trainable parameters. While LoRA offers numerous\nadvantages, its applicability for real-time serving to a diverse and global\nuser base is constrained by its incapability to handle multiple task-specific\nadapters efficiently. This imposes a performance bottleneck in scenarios\nrequiring personalized, task-specific adaptations for each incoming request. To\nmitigate this constraint, we introduce Fast LoRA (FLoRA), a framework in which\neach input example in a minibatch can be associated with its unique low-rank\nadaptation weights, allowing for efficient batching of heterogeneous requests.\nWe empirically demonstrate that FLoRA retains the performance merits of LoRA,\nshowcasing competitive results on the MultiPL-E code generation benchmark\nspanning over 8 languages and a multilingual speech recognition task across 6\nlanguages.",
+    "pdf_url": "http://arxiv.org/pdf/2312.05677v3",
+    "published": "2023-12-09T20:51:48Z",
+    "relevance_score": 7,
+    "pub_year": 2023
+  },
+  {
+    "arxiv_id": "2503.05200v1",
+    "title": "ORANSight-2.0: Foundational LLMs for O-RAN",
+    "summary": "Despite the transformative impact of Large Language Models (LLMs) across\ncritical domains such as healthcare, customer service, and business marketing,\ntheir integration into Open Radio Access Networks (O-RAN) remains limited. This\ngap is primarily due to the absence of domain-specific foundational models,\nwith existing solutions often relying on general-purpose LLMs that fail to\naddress the unique challenges and technical intricacies of O-RAN. To bridge\nthis gap, we introduce ORANSight-2.0 (O-RAN Insights), a pioneering initiative\naimed at developing specialized foundational LLMs tailored for O-RAN. Built on\n18 LLMs spanning five open-source LLM frameworks, ORANSight-2.0 fine-tunes\nmodels ranging from 1 to 70B parameters, significantly reducing reliance on\nproprietary, closed-source models while enhancing performance for O-RAN. At the\ncore of ORANSight-2.0 is RANSTRUCT, a novel Retrieval-Augmented Generation\n(RAG) based instruction-tuning framework that employs two LLM agents to create\nhigh-quality instruction-tuning datasets. The generated dataset is then used to\nfine-tune the 18 pre-trained open-source LLMs via QLoRA. To evaluate\nORANSight-2.0, we introduce srsRANBench, a novel benchmark designed for code\ngeneration and codebase understanding in the context of srsRAN, a widely used\n5G O-RAN stack. We also leverage ORANBench13K, an existing benchmark for\nassessing O-RAN-specific knowledge. Our comprehensive evaluations demonstrate\nthat ORANSight-2.0 models outperform general-purpose and closed-source models,\nsuch as ChatGPT-4o and Gemini, by 5.421% on ORANBench and 18.465% on\nsrsRANBench, achieving superior performance while maintaining lower\ncomputational and energy costs. We also experiment with RAG-augmented variants\nof ORANSight-2.0 LLMs and thoroughly evaluate their energy characteristics,\ndemonstrating costs for training, standard inference, and RAG-augmented\ninference.",
+    "pdf_url": "http://arxiv.org/pdf/2503.05200v1",
+    "published": "2025-03-07T07:44:31Z",
+    "relevance_score": 6,
+    "pub_year": 2025
+  },
+  {
+    "arxiv_id": "2504.00254v1",
+    "title": "ElaLoRA: Elastic & Learnable Low-Rank Adaptation for Efficient Model\n  Fine-Tuning",
+    "summary": "Low-Rank Adaptation (LoRA) has become a widely adopted technique for\nfine-tuning large-scale pre-trained models with minimal parameter updates.\nHowever, existing methods rely on fixed ranks or focus solely on either rank\npruning or expansion, failing to adapt ranks dynamically to match the\nimportance of different layers during training. In this work, we propose\nElaLoRA, an adaptive low-rank adaptation framework that dynamically prunes and\nexpands ranks based on gradient-derived importance scores. To the best of our\nknowledge, ElaLoRA is the first method that enables both rank pruning and\nexpansion during fine-tuning. Experiments across multiple benchmarks\ndemonstrate that ElaLoRA consistently outperforms existing PEFT methods across\ndifferent parameter budgets. Furthermore, our studies validate that layers\nreceiving higher rank allocations contribute more significantly to model\nperformance, providing theoretical justification for our adaptive strategy. By\nintroducing a principled and adaptive rank allocation mechanism, ElaLoRA offers\na scalable and efficient fine-tuning solution, particularly suited for\nresource-constrained environments.",
+    "pdf_url": "http://arxiv.org/pdf/2504.00254v1",
+    "published": "2025-03-31T21:58:25Z",
+    "relevance_score": 6,
+    "pub_year": 2025
+  },
+  {
+    "arxiv_id": "2404.15247v2",
+    "title": "XFT: Unlocking the Power of Code Instruction Tuning by Simply Merging\n  Upcycled Mixture-of-Experts",
+    "summary": "We introduce XFT, a simple yet powerful training scheme, by simply merging\nupcycled Mixture-of-Experts (MoE) to unleash the performance limit of\ninstruction-tuned code Large Language Models (LLMs). While vanilla sparse\nupcycling fails to improve instruction tuning, XFT introduces a shared expert\nmechanism with a novel routing weight normalization strategy into sparse\nupcycling, which significantly boosts instruction tuning. After fine-tuning the\nupcycled MoE model, XFT introduces a learnable model merging mechanism to\ncompile the upcycled MoE model back to a dense model, achieving upcycled\nMoE-level performance with only dense-model compute. By applying XFT to a 1.3B\nmodel, we create a new state-of-the-art tiny code LLM (<3B) with 67.1 and 64.6\npass@1 on HumanEval and HumanEval+ respectively. With the same data and model\narchitecture, XFT improves supervised fine-tuning (SFT) by 13% on HumanEval+,\nalong with consistent improvements from 2% to 13% on MBPP+, MultiPL-E, and\nDS-1000, demonstrating its generalizability. XFT is fully orthogonal to\nexisting techniques such as Evol-Instruct and OSS-Instruct, opening a new\ndimension for improving code instruction tuning. Codes are available at\nhttps://github.com/ise-uiuc/xft.",
+    "pdf_url": "http://arxiv.org/pdf/2404.15247v2",
+    "published": "2024-04-23T17:32:24Z",
+    "relevance_score": 6,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2406.12430v1",
+    "title": "PlanRAG: A Plan-then-Retrieval Augmented Generation for Generative Large\n  Language Models as Decision Makers",
+    "summary": "In this paper, we conduct a study to utilize LLMs as a solution for decision\nmaking that requires complex data analysis. We define Decision QA as the task\nof answering the best decision, $d_{best}$, for a decision-making question $Q$,\nbusiness rules $R$ and a database $D$. Since there is no benchmark that can\nexamine Decision QA, we propose Decision QA benchmark, DQA. It has two\nscenarios, Locating and Building, constructed from two video games (Europa\nUniversalis IV and Victoria 3) that have almost the same goal as Decision QA.\nTo address Decision QA effectively, we also propose a new RAG technique called\nthe iterative plan-then-retrieval augmented generation (PlanRAG). Our\nPlanRAG-based LM generates the plan for decision making as the first step, and\nthe retriever generates the queries for data analysis as the second step. The\nproposed method outperforms the state-of-the-art iterative RAG method by 15.8%\nin the Locating scenario and by 7.4% in the Building scenario, respectively. We\nrelease our code and benchmark at https://github.com/myeon9h/PlanRAG.",
+    "pdf_url": "http://arxiv.org/pdf/2406.12430v1",
+    "published": "2024-06-18T09:25:35Z",
+    "relevance_score": 6,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2405.00657v2",
+    "title": "RST-LoRA: A Discourse-Aware Low-Rank Adaptation for Long Document\n  Abstractive Summarization",
+    "summary": "For long document summarization, discourse structure is important to discern\nthe key content of the text and the differences in importance level between\nsentences. Unfortunately, the integration of rhetorical structure theory (RST)\ninto parameter-efficient fine-tuning strategies for long document summarization\nremains unexplored. Therefore, this paper introduces RST-LoRA and proposes four\nRST-aware variants to explicitly incorporate RST into the LoRA model. Our\nempirical evaluation demonstrates that incorporating the type and uncertainty\nof rhetorical relations can complementarily enhance the performance of LoRA in\nsummarization tasks. Furthermore, the best-performing variant we introduced\noutperforms the vanilla LoRA and full-parameter fine-tuning models, as\nconfirmed by multiple automatic and human evaluations, and even surpasses\nprevious state-of-the-art methods.",
+    "pdf_url": "http://arxiv.org/pdf/2405.00657v2",
+    "published": "2024-05-01T17:37:50Z",
+    "relevance_score": 6,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2407.07802v1",
+    "title": "ROSA: Random Subspace Adaptation for Efficient Fine-Tuning",
+    "summary": "Model training requires significantly more memory, compared with inference.\nParameter efficient fine-tuning (PEFT) methods provide a means of adapting\nlarge models to downstream tasks using less memory. However, existing methods\nsuch as adapters, prompt tuning or low-rank adaptation (LoRA) either introduce\nlatency overhead at inference time or achieve subpar downstream performance\ncompared with full fine-tuning. In this work we propose Random Subspace\nAdaptation (ROSA), a method that outperforms previous PEFT methods by a\nsignificant margin, while maintaining a zero latency overhead during inference\ntime. In contrast to previous methods, ROSA is able to adapt subspaces of\narbitrarily large dimension, better approximating full-finetuning. We\ndemonstrate both theoretically and experimentally that this makes ROSA strictly\nmore expressive than LoRA, without consuming additional memory during runtime.\nAs PEFT methods are especially useful in the natural language processing\ndomain, where models operate on scales that make full fine-tuning very\nexpensive, we evaluate ROSA in two common NLP scenarios: natural language\ngeneration (NLG) and natural language understanding (NLU) with GPT-2 and\nRoBERTa, respectively. We show that on almost every GLUE task ROSA outperforms\nLoRA by a significant margin, while also outperforming LoRA on NLG tasks. Our\ncode is available at https://github.com/rosa-paper/rosa",
+    "pdf_url": "http://arxiv.org/pdf/2407.07802v1",
+    "published": "2024-07-10T16:20:53Z",
+    "relevance_score": 6,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2408.11869v3",
+    "title": "ELDER: Enhancing Lifelong Model Editing with Mixture-of-LoRA",
+    "summary": "Large language models (LLMs) require model editing to efficiently update\nspecific knowledge within them and avoid factual errors. Most model editing\nmethods are solely designed for single-time use and result in a significant\nforgetting effect in lifelong editing scenarios, where sequential edits are\nconducted over time. Previous approaches manage sequential edits by freezing\noriginal parameters and discretely allocating new parameters for each knowledge\nupdate. However, these methods lack robustness to minor input variations due to\nthe discrete mapping between data and parameters. To overcome this challenge,\nwe propose ELDER, a novel approach to create a continuous association between\ndata and adapters. ELDER integrates multiple LoRAs through a router network and\nis trained to establish a smooth data-adapter association, thereby enhancing\nthe edit robustness and generalization of semantically equivalent inputs. To\nensure inputs containing the same knowledge will be processed by the same\nLoRAs, we design a novel loss to guide the model link LoRA allocations with\nedit knowledge. Furthermore, we propose a deferral mechanism to retain the\noriginal LLM capabilities post-edit. Extensive experiments on GPT-2 XL and\nLLaMA2-7B demonstrate that ELDER effectively edits models in the lifelong\nsetting, outperforming eight baselines while exhibiting strong scalability and\npreserving LLMs' general abilities on downstream tasks. Our code is available\nat https://github.com/JiaangL/ELDER.",
+    "pdf_url": "http://arxiv.org/pdf/2408.11869v3",
+    "published": "2024-08-19T02:27:00Z",
+    "relevance_score": 6,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2407.04528v4",
+    "title": "GPT vs RETRO: Exploring the Intersection of Retrieval and\n  Parameter-Efficient Fine-Tuning",
+    "summary": "Parameter-Efficient Fine-Tuning (PEFT) and Retrieval-Augmented Generation\n(RAG) have become popular methods for adapting large language models while\nminimizing compute requirements. In this paper, we apply PEFT methods\n(P-tuning, Adapters, and LoRA) to a modified Retrieval-Enhanced Transformer\n(RETRO) and a baseline GPT model across several sizes, ranging from 823 million\nto 48 billion parameters. We show that RETRO models outperform GPT models in\nzero-shot settings due to their unique pre-training process but GPT models have\nhigher performance potential with PEFT. Additionally, our study indicates that\n8B parameter models strike an optimal balance between cost and performance and\nP-tuning lags behind other PEFT techniques. We further provide a comparative\nanalysis between applying PEFT to an Instruction-tuned RETRO model and base\nRETRO model. This work presents the first comprehensive comparison of various\nPEFT methods integrated with RAG, applied to both GPT and RETRO models,\nhighlighting their relative performance.",
+    "pdf_url": "http://arxiv.org/pdf/2407.04528v4",
+    "published": "2024-07-05T14:16:47Z",
+    "relevance_score": 6,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2402.10380v1",
+    "title": "Subgraph-level Universal Prompt Tuning",
+    "summary": "In the evolving landscape of machine learning, the adaptation of pre-trained\nmodels through prompt tuning has become increasingly prominent. This trend is\nparticularly observable in the graph domain, where diverse pre-training\nstrategies present unique challenges in developing effective prompt-based\ntuning methods for graph neural networks. Previous approaches have been\nlimited, focusing on specialized prompting functions tailored to models with\nedge prediction pre-training tasks. These methods, however, suffer from a lack\nof generalizability across different pre-training strategies. Recently, a\nsimple prompt tuning method has been designed for any pre-training strategy,\nfunctioning within the input graph's feature space. This allows it to\ntheoretically emulate any type of prompting function, thereby significantly\nincreasing its versatility for a range of downstream applications.\nNevertheless, the capacity of such simple prompts to fully grasp the complex\ncontexts found in graphs remains an open question, necessitating further\ninvestigation. Addressing this challenge, our work introduces the\nSubgraph-level Universal Prompt Tuning (SUPT) approach, focusing on the\ndetailed context within subgraphs. In SUPT, prompt features are assigned at the\nsubgraph-level, preserving the method's universal capability. This requires\nextremely fewer tuning parameters than fine-tuning-based methods, outperforming\nthem in 42 out of 45 full-shot scenario experiments with an average improvement\nof over 2.5%. In few-shot scenarios, it excels in 41 out of 45 experiments,\nachieving an average performance increase of more than 6.6%.",
+    "pdf_url": "http://arxiv.org/pdf/2402.10380v1",
+    "published": "2024-02-16T00:25:24Z",
+    "relevance_score": 6,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2406.19486v1",
+    "title": "LoPT: Low-Rank Prompt Tuning for Parameter Efficient Language Models",
+    "summary": "In prompt tuning, a prefix or suffix text is added to the prompt, and the\nembeddings (soft prompts) or token indices (hard prompts) of the prefix/suffix\nare optimized to gain more control over language models for specific tasks.\nThis approach eliminates the need for hand-crafted prompt engineering or\nexplicit model fine-tuning. Prompt tuning is significantly more\nparameter-efficient than model fine-tuning, as it involves optimizing partial\ninputs of language models to produce desired outputs.\n  In this work, we aim to further reduce the amount of trainable parameters\nrequired for a language model to perform well on specific tasks. We propose\nLow-rank Prompt Tuning (LoPT), a low-rank model for prompts that achieves\nefficient prompt optimization. The proposed method demonstrates similar\noutcomes to full parameter prompt tuning while reducing the number of trainable\nparameters by a factor of 5. It also provides promising results compared to the\nstate-of-the-art methods that would require 10 to 20 times more parameters.",
+    "pdf_url": "http://arxiv.org/pdf/2406.19486v1",
+    "published": "2024-06-27T19:02:41Z",
+    "relevance_score": 6,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2409.15657v4",
+    "title": "M$^2$PT: Multimodal Prompt Tuning for Zero-shot Instruction Learning",
+    "summary": "Multimodal Large Language Models (MLLMs) demonstrate remarkable performance\nacross a wide range of domains, with increasing emphasis on enhancing their\nzero-shot generalization capabilities for unseen tasks across various\nmodalities. Instruction tuning has emerged as an effective strategy for\nachieving zero-shot generalization by finetuning pretrained models on diverse\nmultimodal tasks. As the scale of MLLMs continues to grow, parameter-efficient\nfinetuning becomes increasingly critical. However, most existing\nparameter-efficient approaches focus only on single modalities and often\noverlook the multimodal characteristics during finetuning. In this work, we\nintroduce a novel Multimodal Prompt Tuning (M$^2$PT) approach for efficient\ninstruction tuning of MLLMs. M$^2$PT effectively integrates visual and textual\nprompts into the vision encoder and language processor respectively during\nfinetuning, facilitating the extraction and alignment of features across\nmodalities. Empirical results on various multimodal evaluation datasets\ndemonstrate the superior performance of our approach compared to several\nstate-of-the-art baselines. A comprehensive set of ablation studies validates\nthe effectiveness of our prompt design and the efficiency of our approach.",
+    "pdf_url": "http://arxiv.org/pdf/2409.15657v4",
+    "published": "2024-09-24T01:40:24Z",
+    "relevance_score": 6,
+    "pub_year": 2024
+  },
+  {
+    "arxiv_id": "2310.07713v3",
+    "title": "InstructRetro: Instruction Tuning post Retrieval-Augmented Pretraining",
+    "summary": "Pretraining auto-regressive large language models~(LLMs) with retrieval\ndemonstrates better perplexity and factual accuracy by leveraging external\ndatabases. However, the size of existing pretrained retrieval-augmented LLM is\nstill limited (e.g., Retro has 7.5B parameters), which limits the effectiveness\nof instruction tuning and zero-shot generalization. In this work, we introduce\nRetro 48B, the largest LLM pretrained with retrieval. Specifically, we continue\nto pretrain a 43B GPT model on additional 100 billion tokens using the Retro\naugmentation method by retrieving from 1.2 trillion tokens. Notably, the\nobtained foundation model, Retro 48B, largely outperforms the counterpart GPT\n43B trained on 1.2T tokens in terms of perplexity with only 2.58% additional\nGPU hours, demonstrating the significant scaling potential of the method. After\ninstruction tuning on Retro, InstructRetro demonstrates significant improvement\nover the instruction tuned GPT on a wide range of zero-shot tasks.\nSpecifically, the average improvement of InstructRetro is 7% over its GPT\ncounterpart across 8 short-form QA and reading comprehension tasks, 10% over\nGPT across 4 challenging long-form QA tasks, and 16% over GPT across 3\nsummarization tasks. Surprisingly, we find that one can ablate the encoder from\nInstructRetro architecture and directly use its decoder backbone, while\nachieving comparable results. Our results highlight the promising direction to\nobtain a better GPT decoder through continued pretraining with retrieval before\ninstruction tuning. Our code and checkpoints are publicly available at:\nhttps://huggingface.co/nvidia/retro-48b-instruct-4k.",
+    "pdf_url": "http://arxiv.org/pdf/2310.07713v3",
+    "published": "2023-10-11T17:59:05Z",
+    "relevance_score": 6,
+    "pub_year": 2023
+  },
+  {
+    "arxiv_id": "2312.15685v2",
+    "title": "What Makes Good Data for Alignment? A Comprehensive Study of Automatic\n  Data Selection in Instruction Tuning",
+    "summary": "Instruction tuning is a standard technique employed to align large language\nmodels to end tasks and user preferences after the initial pretraining phase.\nRecent research indicates the critical role of data engineering in instruction\ntuning -- when appropriately selected, only limited data is necessary to\nachieve superior performance. However, we still lack a principled understanding\nof what makes good instruction tuning data for alignment, and how we should\nselect data automatically and effectively. In this work, we delve deeply into\nautomatic data selection strategies for alignment. We start with controlled\nstudies to measure data across three dimensions: complexity, quality, and\ndiversity, along which we examine existing methods and introduce novel\ntechniques for enhanced data measurement. Subsequently, we propose a simple\nstrategy to select data samples based on the measurement. We present deita\n(short for Data-Efficient Instruction Tuning for Alignment), a series of models\nfine-tuned from LLaMA and Mistral models using data samples automatically\nselected with our proposed approach. Empirically, deita performs better or on\npar with the state-of-the-art open-source alignment models with only 6K SFT\ntraining data samples -- over 10x less than the data used in the baselines.\nWhen further trained with direct preference optimization (DPO),\ndeita-Mistral-7B + DPO trained with 6K SFT and 10K DPO samples achieve 7.55\nMT-Bench and 90.06% AlpacaEval scores. We anticipate this work to provide tools\non automatic data selection, facilitating data-efficient alignment. We release\nour models as well as the selected datasets for future researches to\neffectively align models more efficiently.",
+    "pdf_url": "http://arxiv.org/pdf/2312.15685v2",
+    "published": "2023-12-25T10:29:28Z",
+    "relevance_score": 6,
+    "pub_year": 2023
+  },
+  {
+    "arxiv_id": "2310.08659v4",
+    "title": "LoftQ: LoRA-Fine-Tuning-Aware Quantization for Large Language Models",
+    "summary": "Quantization is an indispensable technique for serving Large Language Models\n(LLMs) and has recently found its way into LoRA fine-tuning. In this work we\nfocus on the scenario where quantization and LoRA fine-tuning are applied\ntogether on a pre-trained model. In such cases it is common to observe a\nconsistent gap in the performance on downstream tasks between full fine-tuning\nand quantization plus LoRA fine-tuning approach. In response, we propose LoftQ\n(LoRA-Fine-Tuning-aware Quantization), a novel quantization framework that\nsimultaneously quantizes an LLM and finds a proper low-rank initialization for\nLoRA fine-tuning. Such an initialization alleviates the discrepancy between the\nquantized and full-precision model and significantly improves generalization in\ndownstream tasks. We evaluate our method on natural language understanding,\nquestion answering, summarization, and natural language generation tasks.\nExperiments show that our method is highly effective and outperforms existing\nquantization methods, especially in the challenging 2-bit and 2/4-bit mixed\nprecision regimes. The code is available on https://github.com/yxli2123/LoftQ.",
+    "pdf_url": "http://arxiv.org/pdf/2310.08659v4",
+    "published": "2023-10-12T18:34:08Z",
+    "relevance_score": 6,
+    "pub_year": 2023
+  },
+  {
+    "arxiv_id": "2311.08572v2",
+    "title": "Low-Rank Adaptation for Multilingual Summarization: An Empirical Study",
+    "summary": "Although the advancements of pre-trained Large Language Models have\nsignificantly accelerated recent progress in NLP, their ever-increasing size\nposes significant challenges for conventional fine-tuning, especially in\nmemory-intensive tasks. We investigate the potential of Parameter-Efficient\nFine-Tuning, focusing on Low-Rank Adaptation (LoRA), in the domain of\nmultilingual summarization, a task that is both challenging (due to typically\nlong inputs), and relatively unexplored. We conduct an extensive study across\ndifferent data availability scenarios, including high- and low-data settings,\nand cross-lingual transfer, leveraging models of different sizes. Our findings\nreveal that LoRA is competitive with full fine-tuning when trained with high\nquantities of data, and excels in low-data scenarios and cross-lingual\ntransfer. We also study different strategies for few-shot cross-lingual\ntransfer, finding that continued LoRA tuning outperforms full fine-tuning and\nthe dynamic composition of language-specific LoRA modules.",
+    "pdf_url": "http://arxiv.org/pdf/2311.08572v2",
+    "published": "2023-11-14T22:32:39Z",
+    "relevance_score": 6,
+    "pub_year": 2023
+  }
+]
