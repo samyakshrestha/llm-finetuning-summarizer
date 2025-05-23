@@ -120,3 +120,8 @@ The system performs dual-source retrieval, combining local and global context:
 - **RAG Stack**: **FAISS**, **HuggingFace Hub**, **LangChain**
 - **Deployment**: **Docker**, **Gradio**, **FastAPI**, **Hugging Face Spaces**
 - **Evaluation**: **BLEU**, **BERTScore**, **GPT-4 (LLM-as-Judge)**
+
+---
+
+## Author 
+Samyak Shrestha
